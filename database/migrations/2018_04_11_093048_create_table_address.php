@@ -20,7 +20,7 @@ class CreateTableAddress extends Migration
             $table->string('company', 100);
             $table->text('address');
             $table->char('postcode', 6);
-            $table->string('email', 100);
+            $table->string('email', 100); 
             $table->string('telephone', 20);
             $table->integer('userid');
             $table->timestamps();
