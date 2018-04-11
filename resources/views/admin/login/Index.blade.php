@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="login-bg">
 <head>
-    <title>慕课商城 - 后台管理</title>
+    <title>后台管理</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -36,7 +36,7 @@
 
     <div class="span4 box">
         <div class="content-wrap">
-            <h6>慕课商城 - 后台管理</h6>
+            <h6>后台管理</h6>
             <input class="span12" type="text" placeholder="管理员账号" />
             <input class="span12" type="password" placeholder="管理员密码" />
             <a href="#" class="forgot">忘记密码?</a>

@@ -31,6 +31,7 @@ Route::get('/admin/formwizard', 'Admin\FormShowcaseController@formwizard');
 Route::get('/admin/gallery', 'Admin\GalleryController@index');
 Route::get('/admin/login', 'Admin\LoginController@index');
 Route::get('/admin/register', 'Admin\RegisterController@index');
+Route::post('/admin/registerfrom', 'Admin\RegisterController@register');
 Route::get('/admin/manager', 'Admin\ManagerController@index');
 Route::get('/admin/persioninfo', 'Admin\PersionalInfoController@index');
 Route::get('/admin/table', 'Admin\TableController@index');

@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <form role="form" class="login-form cf-style-1">
+                        <form role="form" class="login-form cf-style-1" action="{{url('/admin/register')}}" method="post">
                             <div class="field-row">
                                 <label>邮箱</label>
                                 <input type="text" class="le-input">

@@ -39,7 +39,7 @@
         </button>
         <div class="nav-collapse collapse">
             <ul class="nav">
-                <li class="active"><a href="index.html">后台首页</a></li>
+                <li class="active"><a href="{{url('/admin/index')}}">后台首页</a></li>
             </ul>
         </div>
         <ul class="nav pull-right">
@@ -52,8 +52,8 @@
                 </a>
             </li>
             <li id="fat-menu" class="dropdown">
-                <a href="signin.html" role="button" class="logout">
-                    <span class="navbar_icon"></span>
+                <a href="{{url('/admin/login')}}" role="button" class="logout">
+                    <span class="navbar_icon">登录</span>
                 </a>
             </li>
         </ul>
