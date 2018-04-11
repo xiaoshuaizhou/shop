@@ -11,4 +11,9 @@ class ProductController extends Controller
     {
         return view('home.product.index');
     }
+
+    public function detail()
+    {
+        return view('home.product.detail');
+    }
 }
