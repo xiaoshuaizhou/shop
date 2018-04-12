@@ -66,9 +66,9 @@
 
 
 <!-- scripts -->
-<script src="js/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/theme.js"></script>
+<script src="/js/jquery-latest.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/theme.js"></script>
 
 <!-- pre load bg imgs -->
 <script type="text/javascript">

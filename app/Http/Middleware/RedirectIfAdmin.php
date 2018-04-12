@@ -18,6 +18,7 @@ class RedirectIfAdmin
 	public function handle($request, Closure $next, $guard = 'admin')
 	{
 	    if (Auth::guard($guard)->check()) {
+	        if($_SERVER['REQUEST_URI'] == '/admin/register') return redirect('admin/login');
 	        return redirect('admin/index');
 	    }
 
