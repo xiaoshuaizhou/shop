@@ -10,7 +10,7 @@
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>MediaCenter - Responsive eCommerce Template</title>
+    <title></title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -57,9 +57,9 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">首页</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-colors">Change Colors</a>
+                        <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-colors">换肤</a>
 
                         <ul class="dropdown-menu" role="menu" >
                             <li role="presentation"><a role="menuitem" class="changecolor green-text" tabindex="-1" href="#" title="Green color">Green</a></li>
