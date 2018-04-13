@@ -41,7 +41,7 @@
                             <div class="span12">
                                 <label for="email" >{{ __('邮箱') }}</label>
 
-                                <div class="col-md-8">
+                                <div >
                                     <input id="email" type="email" class="le-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
@@ -55,7 +55,7 @@
                             <div class="span12">
                                 <label for="password" >{{ __('密码') }}</label>
 
-                                <div class="col-md-4">
+                                <div >
                                     <input id="password" type="password" class="le-input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
@@ -68,7 +68,7 @@
 
                             <div class="span12">
                                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('记住我') }}
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="{{ url('admin/password/reset') }}">
                                     {{ __('忘记密码?') }}
                                 </a>
                             </div>

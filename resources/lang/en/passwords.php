@@ -14,9 +14,9 @@ return [
     */
 
     'password' => '密码最少6个字符.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'reset' => '您的密码已重置!',
+    'sent' => '我们已通过电子邮件发送您的密码重置链接!',
+    'token' => '密码重置的令牌无效.',
+    'user' => "该邮箱不存在，请确认后提交.",
 
 ];
