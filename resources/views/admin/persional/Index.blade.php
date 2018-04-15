@@ -82,10 +82,11 @@
                 </div>
                 <h5 class="personal-title">个人信息</h5>
 
-                <form />
+                <form action="{{url('admin/changepersioninfo')}}" method="post">
+                    @csrf
                 <div class="field-box">
                     <label>昵称:</label>
-                    <input class="span5 inline-input" type="text" value="Alejandra" />
+                    <input class="span5 inline-input" type="text" value="" />
                 </div>
                 <div class="field-box">
                     <label>真实姓名:</label>

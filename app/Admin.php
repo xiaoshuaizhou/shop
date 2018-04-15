@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Notifications\AdminResetPassword;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Naux\Mail\SendCloudTemplate;
 
 class Admin extends Authenticatable
 {
@@ -36,6 +36,16 @@ class Admin extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new AdminResetPassword($token));
+        // 模板变量
+        $data = [
+            'url' => url('admin/password/reset', $token)
+        ];
+        $template = new SendCloudTemplate('zhihu_app_register_rest', $data);
+
+        \Mail::raw($template, function ($message) {
+            $message->from(env('SEND_EMAIL_FROM'), config('app.name'));
+
+            $message->to($this->email);
+        });
     }
 }

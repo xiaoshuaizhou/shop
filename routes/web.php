@@ -36,7 +36,12 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
     Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 
-    Route::get('/manager/add', 'Admin\ManagerController@index');
+    Route::get('/manager/add', 'Admin\ManagerController@add');
+    Route::post('/manager/add', 'Admin\ManagerController@create');
+    Route::get('/manager/del/{id}', 'Admin\ManagerController@detroy');
+
+    Route::get('/manager/index', 'Admin\ManagerController@index');
+    Route::post('/manager/index', 'Admin\ManagerController@index');
 
     Route::get('/index', 'Admin\IndexController@index');
     Route::get('/calender', 'Admin\CalendarController@index');
@@ -45,7 +50,15 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/formwizard', 'Admin\FormShowcaseController@formwizard');
     Route::get('/gallery', 'Admin\GalleryController@index');
     Route::get('/manager', 'Admin\ManagerController@index');
+
     Route::get('/persioninfo', 'Admin\PersionalInfoController@index');
+    Route::post('/changepersioninfo', 'Admin\PersionalInfoController@changepersioninfo');
+    Route::get('/changeemail', 'Admin\ManagerController@changeemail');
+    Route::post('manager/changeemailpost', 'Admin\ManagerController@changeemailpost');
+
+    Route::get('changepass', 'Admin\ManagerController@changepass');
+    Route::post('manager/changepasspost', 'Admin\ManagerController@changepasspost');
+
     Route::get('/table', 'Admin\TableController@index');
     Route::get('/user', 'Admin\UserController@index');
     Route::get('/user/profile', 'Admin\UserController@profile');

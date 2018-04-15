@@ -1,6 +1,8 @@
-@include('../layouts/sidebar')
+@include('./../../layouts/sidebar')
 
 <link rel="stylesheet" href="/admin/css/compiled/new-user.css" type="text/css" media="screen" />
+{{--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">--}}
+
 <!-- main container -->
 <div class="content">
 
@@ -14,27 +16,68 @@
                 <!-- left column -->
                 <div class="span9 with-sidebar">
                     <div class="container">
-                        <form class="new_user_form inline-input" />
-                        <div class="span12 field-box">
-                            <label>管理员账号：</label>
-                            <input class="span9" type="text" />
+                        @include('flash::message')
+                        <form class="new_user_form inline-input" role="form" method="POST" action="{{ url('/admin/manager/add') }}" >
+                        @csrf
+                        <div class="span12 field-box{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">管理员账号</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="span9" name="name" value="{{ old('name') }}" autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block" >
+                                        <strong">{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
-                        <div class="span12 field-box">
-                            <label>电子邮箱：</label>
-                            <input class="span9" type="text" />
+                        <div class="span12 field-box{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">邮箱</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="text" class="span9" name="email" value="{{ old('email') }}">
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
-                        <div class="span12 field-box">
-                            <label>密码：</label>
-                            <input class="span9" type="text" />
+
+
+                        <div class="span12 field-box{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">密码</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="span9" name="password">
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
-                        <div class="span12 field-box">
-                            <label>确认密码：</label>
-                            <input class="span9" type="text" />
+
+                        <div class="span12 field-box{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label for="password-confirm">确认密码</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="span9" name="password_confirmation">
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="span11 field-box actions">
-                            <input type="button" class="btn-glow primary" value="创建" />
+                            <input type="submit" class="btn-glow primary" value="创建" />
                             <span>或者</span>
                             <input type="reset" value="取消" class="reset" />
                         </div>
@@ -58,4 +101,34 @@
     </div>
 </div>
 </div>
+<!-- scripts -->
+<script src="/admin/js/jquery-latest.js"></script>
+<script src="/admin/js/bootstrap.min.js"></script>
+<script src="/admin/js/theme.js"></script>
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
+<script type="text/javascript">
+
+
+
+    $(function () {
+
+        // toggle form between inline and normal inputs
+        var $buttons = $(".toggle-inputs button");
+        var $form = $("form.new_user_form");
+
+        $buttons.click(function () {
+            var mode = $(this).data("input");
+            $buttons.removeClass("active");
+            $(this).addClass("active");
+
+            if (mode === "inline") {
+                $form.addClass("inline-input");
+            } else {
+                $form.removeClass("inline-input");
+            }
+        });
+    });
+</script>
 <!-- end main container -->

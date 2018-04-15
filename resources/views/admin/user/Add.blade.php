@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div id="pad-wrapper" class="new-user">
             <div class="row-fluid header">
-                <h3>Create a new user</h3>
+                <h3>创建新用户</h3>
             </div>
 
             <div class="row-fluid form-wrapper">
@@ -16,57 +16,52 @@
                     <div class="container">
                         <form class="new_user_form inline-input" />
                         <div class="span12 field-box">
-                            <label>Name:</label>
+                            <label>用户名:</label>
                             <input class="span9" type="text" />
                         </div>
                         <div class="span12 field-box">
-                            <label>State:</label>
+                            <label>状态:</label>
                             <div class="ui-select span5">
                                 <select>
-                                    <option value="AK" />Alaska
-                                    <option value="HI" />Hawaii
-                                    <option value="CA" />California
-                                    <option value="NV" />Nevada
-                                    <option value="OR" />Oregon
-                                    <option value="WA" />Washington
-                                    <option value="AZ" />Arizona
+                                    <option value="1" />正常
+                                    <option value="0" />未激活
                                 </select>
                             </div>
                         </div>
                         <div class="span12 field-box">
-                            <label>Company:</label>
+                            <label>公司:</label>
                             <input class="span9" type="text" />
                         </div>
                         <div class="span12 field-box">
-                            <label>Email:</label>
+                            <label>邮箱:</label>
                             <input class="span9" type="text" />
                         </div>
                         <div class="span12 field-box">
-                            <label>Phone:</label>
+                            <label>电话:</label>
                             <input class="span9" type="text" />
                         </div>
                         <div class="span12 field-box">
-                            <label>Website:</label>
+                            <label>网址:</label>
                             <input class="span9" type="text" />
                         </div>
                         <div class="span12 field-box">
-                            <label>Address:</label>
+                            <label>地址:</label>
                             <div class="address-fields">
-                                <input class="span12" type="text" placeholder="Street address" />
-                                <input class="span12 small" type="text" placeholder="City" />
-                                <input class="span12 small" type="text" placeholder="State" />
-                                <input class="span12 small last" type="text" placeholder="Postal Code" />
+                                <input class="span12" type="text" placeholder="详细地址" />
+                                <input class="span12 small" type="text" placeholder="城市" />
+                                <input class="span12 small" type="text" placeholder="状态" />
+                                <input class="span12 small last" type="text" placeholder="邮编" />
                             </div>
                         </div>
                         <div class="span12 field-box textarea">
-                            <label>Notes:</label>
+                            <label>备注:</label>
                             <textarea class="span9"></textarea>
-                            <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+                            <span class="charactersleft">最多100个字符</span>
                         </div>
                         <div class="span11 field-box actions">
-                            <input type="button" class="btn-glow primary" value="Create user" />
-                            <span>OR</span>
-                            <input type="reset" value="Cancel" class="reset" />
+                            <input type="button" class="btn-glow primary" value="创建" />
+                            <span>或者</span>
+                            <input type="reset" value="取消" class="reset" />
                         </div>
                         </form>
                     </div>
@@ -75,20 +70,20 @@
                 <!-- side right column -->
                 <div class="span3 form-sidebar pull-right">
                     <div class="btn-group toggle-inputs hidden-tablet">
-                        <button class="glow left active" data-input="inline">INLINE INPUTS</button>
-                        <button class="glow right" data-input="normal">NORMAL INPUTS</button>
+                        <button class="glow left active" data-input="inline">内联样式</button>
+                        <button class="glow right" data-input="normal">正常表单</button>
                     </div>
                     <div class="alert alert-info hidden-tablet">
                         <i class="icon-lightbulb pull-left"></i>
-                        Click above to see difference between inline and normal inputs on a form
+                        点击上方可查看表单上内联和正常输入的区别
                     </div>
-                    <h6>Sidebar text for instructions</h6>
-                    <p>Add multiple users at once</p>
-                    <p>Choose one of the following file types:</p>
+                    <h6>补充说明</h6>
+                    <p>一次添加多个用户</p>
+                    <p>选择以下文件类型之一:</p>
                     <ul>
-                        <li><a href="#">Upload a vCard file</a></li>
-                        <li><a href="#">Import from a CSV file</a></li>
-                        <li><a href="#">Import from an Excel file</a></li>
+                        <li><a href="#">上传一个vCard文件</a></li>
+                        <li><a href="#">导入一个 CSV 文件</a></li>
+                        <li><a href="#">导入一个 Excel 文件</a></li>
                     </ul>
                 </div>
             </div>

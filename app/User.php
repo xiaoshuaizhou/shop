@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Naux\Mail\SendCloudTemplate;
 
 /**
  * App\User
@@ -32,4 +33,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    private function sendPasswordResetNotification($token)
+    {
+        // 模板变量
+        $data = [
+            'url' => url('/password/reset', $token)
+        ];
+        $template = new SendCloudTemplate('zhihu_app_register_rest', $data);
+
+        \Mail::raw($template, function ($message) {
+            $message->from(env('SEND_EMAIL_FROM'), config('app.name'));
+
+            $message->to($this->email);
+        });
+    }
+
 }

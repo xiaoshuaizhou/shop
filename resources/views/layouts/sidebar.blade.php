@@ -190,8 +190,8 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{url('/admin/persioninfo')}}">个人信息管理</a></li>
-                    <li><a href="#">修改密码</a></li>
+                    <li><a href="{{url('/admin/changeemail')}}">修改邮箱</a></li>
+                    <li><a href="{{url('/admin/changepass')}}">修改密码</a></li>
                     <li><a href="#">订单管理</a></li>
                 </ul>
             </li>
@@ -240,14 +240,13 @@
 
         <li>
             <a class="dropdown-toggle" href="#">
-                <i class="icon-group"></i>
+                <i class="icon-user"></i>
                 <span>管理员管理</span>
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="{{url('/admin/user')}}">管理员列表</a></li>
+                <li><a href="{{url('/admin/manager/index')}}">管理员列表</a></li>
                 <li><a href="{{url('/admin/manager/add')}}">管理员新用户</a></li>
-                <li><a href="{{url('/admin/user/profile')}}">管理员信息</a></li>
             </ul>
         </li>
 

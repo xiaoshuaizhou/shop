@@ -1,4 +1,4 @@
-@include('./../../layouts/sidebar');
+@include('./../../layouts/sidebar')
 
 
 <!-- main container -->
