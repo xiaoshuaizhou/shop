@@ -34,7 +34,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    private function sendPasswordResetNotification($token)
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pofile()
+    {
+        return $this->belongsTo('App\Models\Admin\Profile', 'id', 'userid');
+    }
+
+    public function sendPasswordResetNotification($token)
     {
         // 模板变量
         $data = [

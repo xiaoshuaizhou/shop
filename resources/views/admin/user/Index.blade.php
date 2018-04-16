@@ -8,16 +8,17 @@
     <div class="container-fluid">
         <div id="pad-wrapper" class="users-list">
             <div class="row-fluid header">
-                <h3>Users</h3>
+                <h3>会员列表</h3>
                 <div class="span10 pull-right">
-                    <input type="text" class="span5 search" placeholder="Type a user's name..." />
+                    <input type="text" class="span5 search" placeholder="" />
 
                     <!-- custom popup filter -->
                     <!-- styles are located in css/elements.css -->
                     <!-- script that enables this dropdown is located in js/theme.js -->
+
                     <div class="ui-dropdown">
-                        <div class="head" data-toggle="tooltip" title="Click me!">
-                            Filter users
+                        <div class="head" data-toggle="tooltip" title="点击!">
+                            查询会员
                             <i class="arrow-down"></i>
                         </div>
                         <div class="dialog">
@@ -25,6 +26,8 @@
                                 <div class="arrow"></div>
                                 <div class="arrow_border"></div>
                             </div>
+                            <form id="w3" action="" method="post">
+                                @csrf
                             <div class="body">
                                 <p class="title">
                                     查询用户:
@@ -45,15 +48,15 @@
                                         <option />contains
                                     </select>
                                     <input type="text" />
-                                    <a class="btn-flat small">Add filter</a>
+                                    <a class="btn-flat small" onclick="document.getElementById('w3').submit()">查询</a>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
-
-                    <a href="new-user.html" class="btn-flat success pull-right">
+                    <a href="{{url('/admin/user/add')}}" class="btn-flat success pull-right">
                         <span>&#43;</span>
-                        NEW USER
+                        添加新用户
                     </a>
                 </div>
             </div>
@@ -63,51 +66,64 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th class="span4 sortable">
-                            Name
+                        <th class="span4 sortable" style="text-align: center;">
+                            用户名
                         </th>
-                        <th class="span3 sortable">
-                            <span class="line"></span>Signed up
+                        <th class="span3 sortable" style="text-align: center;">
+                            <span class="line"></span>真实姓名
                         </th>
-                        <th class="span2 sortable">
-                            <span class="line"></span>Total spent
+                        <th class="span2 sortable" style="text-align: center;">
+                            <span class="line"></span>昵称
                         </th>
-                        <th class="span3 sortable align-right">
-                            <span class="line"></span>Email
+                        <th class="span3 sortable align-right" style="text-align: center;">
+                            <span class="line"></span>性别
+                        </th>
+                        <th class="span3 sortable align-right" style="text-align: center;">
+                            <span class="line"></span>邮箱
+                        </th>
+                        <th class="span3 sortable align-right" style="text-align: center;">
+                            <span class="line"></span>详细地址
+                        </th>
+                        <th class="span3 sortable align-right" style="text-align: center;">
+                            <span class="line"></span>操作
                         </th>
                     </tr>
                     </thead>
                     <tbody>
                     <!-- row -->
+                    @foreach($users as $user)
                     <tr class="first">
                         <td>
                             <img src="/admin/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="user-profile.html" class="name">Alejandra Galvan Castillo</a>
-                            <span class="subtext">Graphic Design</span>
+                            <a href="/user/{{$user->id}}" class="name">{{$user->name}}</a>
+                            <span class="subtext">{{$user->pofile->company}}</span>
                         </td>
-                        <td>
-                            Mar 13, 2012
+                        <td style="text-align: center;">
+                            {{$user->pofile->truename}}
                         </td>
-                        <td>
-                            $ 4,500.00
+                        <td style="text-align: center;">
+                            {{$user->pofile->nickname}}
                         </td>
-                        <td class="align-right">
-                            <a href="#">alejandra@canvas.com</a>
+                        <td style="text-align: center;">
+                            {{$user->pofile->sex}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{$user->email}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{$user->pofile->detailaddress}}
+                        </td>
+                        <td class="align-right" style="text-align: center;">
+                            <a href="{{url('/admin/user/delete', ['id' => $user->id])}}">删除</a>
                         </td>
                     </tr>
-                   
+                   @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="pagination pull-right">
                 <ul>
-                    <li><a href="#">&#8249;</a></li>
-                    <li><a class="active" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&#8250;</a></li>
+                    {{ $users->links() }}
                 </ul>
             </div>
             <!-- end users table -->

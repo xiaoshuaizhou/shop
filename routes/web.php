@@ -60,7 +60,11 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::post('manager/changepasspost', 'Admin\ManagerController@changepasspost');
 
     Route::get('/table', 'Admin\TableController@index');
+
+
     Route::get('/user', 'Admin\UserController@index');
     Route::get('/user/profile', 'Admin\UserController@profile');
     Route::get('/user/add', 'Admin\UserController@add');
+    Route::post('/user/create', 'Admin\UserController@create');
+    Route::get('/user/delete/{id}', 'Admin\UserController@destroy');
 });
