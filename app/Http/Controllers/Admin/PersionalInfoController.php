@@ -46,8 +46,7 @@ class PersionalInfoController extends Controller
     {
         $res = $this->userModel->changeProfileByPass($request->all());
         if ($res){
-            flash('修改成功', 'success');
-            return redirect()->back();
+            return redirect()->back()->withErrors('修改成功');
         }else{
             return redirect()->back()->withErrors('修改失败');
         }

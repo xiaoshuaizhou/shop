@@ -82,16 +82,33 @@ class UserProfileReposity
     }
 
     /**
-     * 修改用户信息[未完]
      * @param $data
      * @return bool
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \Throwable
      */
     public function changeProfileByPass($data)
     {
         $user = $this->userModel::findOrFail($data['id']);
         if (\Hash::check($data['password'], $user->password)){
-            return  $user->pofile->save($data);
+            DB::beginTransaction();
+            try {
+                $user->email = $data['email'];
+                $user->name = $data['name'];
+                $res = $user->saveOrFail();
+                $array['sex'] = $data['sex'];
+                $array['nickname'] = $data['nickname'];
+                $array['truename'] = $data['truename'];
+                $array['company'] = $data['company'];
+                $info = $user->pofile()->update($array);
+                if ($res && $info){
+                    DB::commit();
+                    return true;
+                }
+            }catch (Exception $exception){
+                    DB::rollBack();
+                    return false;
+            }
+
         }else{
             flash('修改失败', 'warning');
             return false;
