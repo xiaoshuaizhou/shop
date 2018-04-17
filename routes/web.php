@@ -17,7 +17,7 @@ Route::get('/product/detail', 'Home\ProductController@detail');
 Route::get('/cart/index', 'Home\CartController@index');
 Route::get('/order/index', 'Home\OrderController@index');
 Route::get('/order/check', 'Home\OrderController@check');
-
+Route::get('email/verify/{token}', ['as' => 'email.verify', 'uses' => 'Home\EmailController@verify']);
 
 Auth::routes();
 

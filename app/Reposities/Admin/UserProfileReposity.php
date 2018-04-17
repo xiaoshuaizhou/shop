@@ -76,9 +76,14 @@ class UserProfileReposity
      */
     public function delete($id)
     {
-        Profile::where('userid', $id)->delete();
-
-        return $this->userModel->where('id', $id)->delete();
+        DB::beginTransaction();
+        try {
+            Profile::where('userid', $id)->delete();
+            $this->userModel->where('id', $id)->delete();
+            DB::commit();
+        }catch (Exception $exception){
+            DB::rollBack();
+        }
     }
 
     /**
