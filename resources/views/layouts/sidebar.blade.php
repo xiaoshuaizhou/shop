@@ -259,7 +259,6 @@
             <ul class="submenu">
                 <li><a href="{{url('/admin/user')}}">用户列表</a></li>
                 <li><a href="{{url('/admin/user/add')}}">加入新用户</a></li>
-                <li><a href="{{url('/admin/user/profile')}}">用户信息</a></li>
             </ul>
         </li>
         <li>
@@ -293,7 +292,7 @@
         </li>
 
         <li>
-            <a href="{{url('/admin/persioninfo')}}">
+            <a href="{{url('/admin/persioninfo')}}/{{Auth::guard('admin')->id()}}">
                 <i class="icon-cog"></i>
                 <span>我的信息</span>
             </a>

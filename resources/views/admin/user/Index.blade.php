@@ -95,7 +95,7 @@
                     <tr class="first">
                         <td>
                             <img src="/admin/img/contact-img.png" class="img-circle avatar hidden-phone" />
-                            <a href="/user/{{$user->id}}" class="name">{{$user->name}}</a>
+                            <a href="{{url('admin/user/')}}/{{$user->id}}" class="name">{{$user->name}}</a>
                             <span class="subtext">{{$user->pofile->company}}</span>
                         </td>
                         <td style="text-align: center;">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin;
 use App\Http\Requests\ChangeEmailRequest;
 use App\Http\Requests\ChangePassRequest;
 use App\Http\Requests\ManagerRequest;
@@ -101,6 +102,9 @@ class ManagerController extends Controller
 
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function changepass()
     {
         $user = \Auth::guard('admin')->user();
@@ -119,6 +123,10 @@ class ManagerController extends Controller
         return $this->flash($res);
     }
 
+    /**
+     * @param $res
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function flash($res)
     {
         if (!$res){
@@ -128,5 +136,14 @@ class ManagerController extends Controller
             flash('修改成功')->success();
             return redirect('/admin/manager/index');
         }
+    }
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function profile($id)
+    {
+        $user = Admin::findOrFail($id);
+
+        return view('admin.user.profile', compact('user'));
     }
 }

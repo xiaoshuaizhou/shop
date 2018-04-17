@@ -62,6 +62,15 @@ class UserProfileReposity
 
     /**
      * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static|static[]
+     */
+    public function getUserById($id)
+    {
+        return $this->userModel->has('pofile')->with('pofile')->find($id);
+    }
+
+    /**
+     * @param $id
      * @return bool|mixed|null
      * @throws Exception
      */
@@ -70,5 +79,22 @@ class UserProfileReposity
         Profile::where('userid', $id)->delete();
 
         return $this->userModel->where('id', $id)->delete();
+    }
+
+    /**
+     * 修改用户信息[未完]
+     * @param $data
+     * @return bool
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function changeProfileByPass($data)
+    {
+        $user = $this->userModel::findOrFail($data['id']);
+        if (\Hash::check($data['password'], $user->password)){
+            return  $user->pofile->save($data);
+        }else{
+            flash('修改失败', 'warning');
+            return false;
+        }
     }
 }

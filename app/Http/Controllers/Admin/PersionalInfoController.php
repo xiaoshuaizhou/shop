@@ -2,26 +2,54 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Reposities\Admin\UserProfileReposity;
+use App\User;
+use Illuminate\Http\Request;
 
 class PersionalInfoController extends Controller
 {
-    public function __construct()
+    /**
+     * @var User
+     */
+    public $userModel;
+
+    /**
+     * UserProfileReposity constructor.
+     * @param $userModel
+     */
+    public function __construct(UserProfileReposity $userModel)
     {
         $this->middleware('admin');
+
+        $this->userModel = $userModel;
     }
 
-    public function index()
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index($id)
     {
-        $user = \Auth::guard('admin')->user();
+        $admin = $this->userModel->getUserById($id);
 
-        return view('admin.persional.index');
+        return view('admin.persional.index', compact('admin'));
     }
 
-    public function changepersioninfo()
+    /**
+     * 修改用户信息
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function changepersioninfo(Request $request)
     {
-        Auth::user();
+        $res = $this->userModel->changeProfileByPass($request->all());
+        if ($res){
+            flash('修改成功', 'success');
+            return redirect()->back();
+        }else{
+            return redirect()->back()->withErrors('修改失败');
+        }
     }
 }

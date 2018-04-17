@@ -51,7 +51,7 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/gallery', 'Admin\GalleryController@index');
     Route::get('/manager', 'Admin\ManagerController@index');
 
-    Route::get('/persioninfo', 'Admin\PersionalInfoController@index');
+    Route::get('/persioninfo/{id}', 'Admin\ManagerController@profile');
     Route::post('/changepersioninfo', 'Admin\PersionalInfoController@changepersioninfo');
     Route::get('/changeemail', 'Admin\ManagerController@changeemail');
     Route::post('manager/changeemailpost', 'Admin\ManagerController@changeemailpost');
@@ -63,8 +63,10 @@ Route::group([ 'prefix' => 'admin' ], function () {
 
 
     Route::get('/user', 'Admin\UserController@index');
-    Route::get('/user/profile', 'Admin\UserController@profile');
     Route::get('/user/add', 'Admin\UserController@add');
+    Route::get('/user/{id}', 'Admin\PersionalInfoController@index');
+    Route::post('/changepersioninfo/changeprofile', 'Admin\PersionalInfoController@changepersioninfo');
+    Route::get('/user/profile', 'Admin\UserController@profile');
     Route::post('/user/create', 'Admin\UserController@create');
     Route::get('/user/delete/{id}', 'Admin\UserController@destroy');
 });

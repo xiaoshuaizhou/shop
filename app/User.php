@@ -42,6 +42,9 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Admin\Profile', 'id', 'userid');
     }
 
+    /**
+     * @param string $token
+     */
     public function sendPasswordResetNotification($token)
     {
         // 模板变量

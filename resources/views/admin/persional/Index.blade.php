@@ -68,7 +68,7 @@
             <!-- avatar column -->
             <div class="span3 avatar-box">
                 <div class="personal-image">
-                    <img src="img/personal-info.png" class="avatar img-circle" />
+                    <img src="/admin/img/personal-info.png" class="avatar img-circle" />
                     <p>上传您的头像...</p>
 
                     <input type="file" />
@@ -78,56 +78,70 @@
             <!-- edit form column -->
             <div class="span7 personal-info">
                 <div class="alert alert-info">
-                    <i class="icon-lightbulb"></i>您可以在这里编辑您的个人信息
+                    <i class="icon-lightbulb"></i>您可以在这里输入<strong>密码</strong>编辑您的个人信息
                 </div>
                 <h5 class="personal-title">个人信息</h5>
 
-                <form action="{{url('admin/changepersioninfo')}}" method="post">
+                <form action="{{url('admin/changepersioninfo/changeprofile')}}" method="post">
                     @csrf
+                    <input type="hidden" name="id" value="{{$admin->id}}">
                 <div class="field-box">
                     <label>昵称:</label>
-                    <input class="span5 inline-input" type="text" value="" />
+                    <input class="span5 inline-input" type="text" name="nickname" value="{{$admin->pofile->nickname}}" />
                 </div>
                 <div class="field-box">
                     <label>真实姓名:</label>
-                    <input class="span5 inline-input" type="text" value="Galvan" />
+                    <input class="span5 inline-input" type="text" name="truename" value="{{$admin->pofile->truename}}" />
                 </div>
                 <div class="field-box">
                     <label>公司:</label>
-                    <input class="span5 inline-input" type="text" value="Design Co." />
+                    <input class="span5 inline-input" type="text" name="company" value="{{$admin->pofile->company}}" />
                 </div>
                 <div class="field-box">
                     <label>电子邮箱:</label>
-                    <input class="span5 inline-input" type="text" value="alejandra@design.com" />
+                    <input class="span5 inline-input" type="text" name="email" value="{{$admin->email}}" />
                 </div>
                 <div class="field-box">
                     <label>性别:</label>
                     <div class="ui-select">
-                        <select id="user_time_zone" name="user[time_zone]">
-                            <option value="0" />保密
-                            <option value="1" />男
-                            <option value="2" />女
+                        <select id="user_time_zone" name="sex">
+                        @if($admin->pofile->sex == '男')
+                            <option value="男" selected="selected"/>男
+                            @elseif($admin->pofile->sex == '保密')
+                                <option value="保密" selected="selected"/>保密
+                            @else
+                                <option value="女" selected="selected" />女
+                        @endif
                         </select>
                     </div>
                 </div>
                 <div class="field-box">
                     <label>用户名:</label>
-                    <input class="span5 inline-input" type="text" value="alegalvan" />
+                    <input class="span5 inline-input" type="text" name="name" value="{{$admin->name}}" />
                 </div>
                 <div class="field-box">
                     <label>密码:</label>
-                    <input class="span5 inline-input" type="password" value="blablablabla" />
+                    <input class="span5 inline-input" type="password" name="password" value="" />
                 </div>
-                <div class="field-box">
-                    <label>确认密码:</label>
-                    <input class="span5 inline-input" type="password" value="blablablabla" />
-                </div>
+                    <div class="span6 field-box actions">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger span5 inline-input">
+                                <ul style="color:red;">
+                                    @foreach ($errors->all() as $error)
+                                        <ol style="text-align: center;">{{ $error }}</ol>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
                 <div class="span6 field-box actions">
-                    <input type="button" class="btn-glow primary" value="保存修改" />
+                    <input type="submit"  class="btn-glow primary" value="保存修改" />
                     <span>或者</span>
                     <input type="reset" value="取消" class="reset" />
                 </div>
+
                 </form>
+
             </div>
         </div>
     </div>
@@ -136,9 +150,9 @@
 
 
 <!-- scripts -->
-<script src="js/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/theme.js"></script>
+<script src="/admin/js/jquery-latest.js"></script>
+<script src="/admin/js/bootstrap.min.js"></script>
+<script src="/admin/js/theme.js"></script>
 
 </body>
 </html>
