@@ -26,7 +26,7 @@ class AddGetipToAdminsTable extends Migration
     public function down()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->bigInteger('getip');
+            $table->dropColumn('getip');
         });
     }
 }

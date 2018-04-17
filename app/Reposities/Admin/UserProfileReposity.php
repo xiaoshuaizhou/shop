@@ -34,6 +34,7 @@ class UserProfileReposity
     public function create($data)
     {
         $data['password'] = bcrypt($data['name']);
+        $data['token'] = str_random(60);
         $user = $this->userModel->create($data);
         $data['userid'] = $user->id;
 

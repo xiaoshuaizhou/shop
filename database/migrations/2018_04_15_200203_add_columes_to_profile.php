@@ -16,12 +16,12 @@ class AddColumesToProfile extends Migration
         Schema::table('profile', function (Blueprint $table) {
             $table->integer('status')->default(0);
             $table->string('phone', 20);
-            $table->string('website', 255);
-            $table->string('detailaddress', 255);
-            $table->string('province');
-            $table->string('city');
-            $table->integer('postcode');
-            $table->text('mark');
+            $table->string('website', 255)->nullable();
+            $table->string('detailaddress', 255)->nullable();
+            $table->string('province')->nullable();
+            $table->string('city')->nullable();
+            $table->integer('postcode')->nullable();
+            $table->text('mark')->nullable();
         });
     }
 
@@ -33,14 +33,14 @@ class AddColumesToProfile extends Migration
     public function down()
     {
         Schema::table('profile', function (Blueprint $table) {
-            $table->integer('status')->default(0);
-            $table->string('phone', 20);
-            $table->string('website', 255);
-            $table->string('detailaddress', 255);
-            $table->string('province');
-            $table->string('city');
-            $table->integer('postcode');
-            $table->text('mark');
+            $table->dropColumn('status');
+            $table->dropColumn('phone');
+            $table->dropColumn('website');
+            $table->dropColumn('detailaddress');
+            $table->dropColumn('province');
+            $table->dropColumn('city');
+            $table->dropColumn('postcode');
+            $table->dropColumn('mark');
         });
     }
 }

@@ -16,9 +16,9 @@ class CreateTableProfile extends Migration
         Schema::create('profile', function (Blueprint $table) {
             $table->increments('id');
             $table->string('truename', 32);
-            $table->tinyInteger('age');
+            $table->tinyInteger('age')->nullable()->defalut(0);
             $table->enum('sex', ['男', '女' , '保密']);
-            $table->dateTime('birthday');
+            $table->dateTime('birthday')->nullable();
             $table->string('nickname', 32);
             $table->string('company', 100);
             $table->integer('userid');
