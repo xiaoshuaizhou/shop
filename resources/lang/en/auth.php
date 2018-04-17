@@ -15,5 +15,5 @@ return [
 
     'failed' => '用户名或密码错误.',
     'throttle' => '操作过于频繁，请在 :seconds 秒后再操作.',
-
+    'verify' => '请登录邮箱激活账号'
 ];

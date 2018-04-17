@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- bootstrap -->
     <link href="/admin/css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="/admin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
@@ -333,5 +333,10 @@
             $wizard.wizard('next');
         });
     });
+</script>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+    $('#flash-overlay-modal').modal();
 </script>
 <!-- end sidebar -->
