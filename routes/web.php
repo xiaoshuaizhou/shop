@@ -69,4 +69,9 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/user/profile', 'Admin\UserController@profile');
     Route::post('/user/create', 'Admin\UserController@create');
     Route::get('/user/delete/{id}', 'Admin\UserController@destroy');
+    //分类
+    Route::get('/category/list', 'Admin\CategoryController@list');
+    Route::get('/category/add', 'Admin\CategoryController@add');
+    Route::post('/category/create', 'Admin\CategoryController@create');
+
 });

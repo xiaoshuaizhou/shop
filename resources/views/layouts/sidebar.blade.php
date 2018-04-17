@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <!-- bootstrap -->
     <link href="/admin/css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="/admin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
@@ -261,6 +261,19 @@
                 <li><a href="{{url('/admin/user/add')}}">加入新用户</a></li>
             </ul>
         </li>
+
+        <li>
+            <a class="dropdown-toggle" href="#">
+                <i class="icon-th-list"></i>
+                <span>分类管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="{{url('/admin/category/list')}}">分类列表</a></li>
+                <li><a href="{{url('/admin/category/add')}}">加入分类</a></li>
+            </ul>
+        </li>
+
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-edit"></i>
@@ -333,10 +346,5 @@
             $wizard.wizard('next');
         });
     });
-</script>
-<script src="//code.jquery.com/jquery.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script>
-    $('#flash-overlay-modal').modal();
 </script>
 <!-- end sidebar -->
