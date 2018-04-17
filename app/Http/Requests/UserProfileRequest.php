@@ -21,34 +21,15 @@ class UserProfileRequest extends FormRequest
      *
      * @return array
      */
-
-    /**
-     * "_token" => "IF2r9elfQIibeYLYpDl8SO82h99nOGKuQU2osOx8"
-    "name" => "yingyongbao"
-    "truename" => "fasdf"
-    "nicjname" => "afdsfas"
-    "status" => "1"
-    "borthday" => "2018-01-01"
-    "company" => "fadsfadsf"
-    "email" => "fasdfasdf@qq.cp"
-    "phone" => "fasdffadsfafd"
-    "website" => "afdsafadsf"
-    "detailaddress" => "adsfadsfadfs"
-    "province" => "adsfadsfadfs"
-    "city" => "adsfafsd"
-    "postcode" => "adsfafds"
-    "mark" => "asdfadsfasdfadfs"
-    ]
-     */
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:users',
             'truename' => 'required|max:255',
             'nickname' => 'required|max:255',
             'sex' => 'required',
             'status' => 'required|in:0,1',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:users',
             'company' => 'required|max:255',
             'phone' => [
                 'required',
@@ -63,11 +44,15 @@ class UserProfileRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return array
+     */
     public function messages()
     {
         return [
             'name.required' => '用户名不能为空',
             'name.max' => '用户名最多255个字符',
+            'name.unique' => '该用户名已被占用',
             'truename.required' => '真实名称不能为空',
             'truename.max' => '真实名称最所255个字符',
             'nickname.required' => '昵称不能为空',
@@ -77,6 +62,7 @@ class UserProfileRequest extends FormRequest
             'status.in' => '状态只能是0或者1',
             'email.required' => '邮箱不能为空',
             'email.email' => '邮箱格式不正确',
+            'email.unique' => '该邮箱已被占用',
             'company.required' => '公司名称不能为空',
             'company.max' => '公司名称最大255个字符',
             'phone.required' => '手机号不能为空',

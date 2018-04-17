@@ -6,6 +6,7 @@ namespace App\Reposities\Admin;
 use App\Models\Admin\Profile;
 use App\User;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class UserProfileReposity
@@ -29,16 +30,26 @@ class UserProfileReposity
 
     /**
      * @param $data
-     * @return $this|\Illuminate\Database\Eloquent\Model
+     * @return bool
      */
     public function create($data)
     {
         $data['password'] = bcrypt($data['name']);
         $data['token'] = str_random(60);
-        $user = $this->userModel->create($data);
-        $data['userid'] = $user->id;
+        DB::beginTransaction();
+        try {
+            $user = $this->userModel->create($data);
+            $data['userid'] = $user->id;
+            $profile = $this->userModel->pofile()->create($data);
+            DB::commit();
+            return true;
+        }catch (Exception $exception){
+            if (!$user || !$profile){
+                DB::rollBack();
+                return false;
+            }
+        }
 
-        return $this->userModel->pofile()->create($data);
     }
 
     /**
@@ -57,6 +68,7 @@ class UserProfileReposity
     public function delete($id)
     {
         Profile::where('userid', $id)->delete();
+
         return $this->userModel->where('id', $id)->delete();
     }
 }

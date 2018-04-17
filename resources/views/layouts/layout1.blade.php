@@ -10,7 +10,7 @@
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title></title>
+    <title>shopping</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -70,55 +70,79 @@
                             <li role="presentation"><a role="menuitem" class="changecolor dark-green-text" tabindex="-1" href="#" title="Darkgreen color">Dark Green</a></li>
                         </ul>
                     </li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#pages">Pages</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="index-2.html">Home Alt</a></li>
-                            <li><a href="category-grid.html">Category - Grid/List</a></li>
-                            <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
-                            <li><a href="single-product.html">Single Product</a></li>
-                            <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
-                            <li><a href="cart.html">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                            <li><a href="blog-post.html">Blog Post</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="terms.html">Terms & Conditions</a></li>
-                            <li><a href="authentication.html">Login/Register</a></li><li><a href="http://www.moke8.com">More</a></li>
-                        </ul>
-                    </li>
+                    {{--<li><a href="blog.html">Blog</a></li>--}}
+                    {{--<li><a href="faq.html">FAQ</a></li>--}}
+                    {{--<li><a href="contact.html">Contact</a></li>--}}
+                        {{--<li class="dropdown">--}}
+                        {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#pages">Pages</a>--}}
+                        {{--<ul class="dropdown-menu" role="menu">--}}
+                            {{--<li><a href="index.html">Home</a></li>--}}
+                            {{--<li><a href="index-2.html">Home Alt</a></li>--}}
+                            {{--<li><a href="category-grid.html">Category - Grid/List</a></li>--}}
+                            {{--<li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>--}}
+                            {{--<li><a href="single-product.html">Single Product</a></li>--}}
+                            {{--<li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>--}}
+                            {{--<li><a href="cart.html">Shopping Cart</a></li>--}}
+                            {{--<li><a href="checkout.html">Checkout</a></li>--}}
+                            {{--<li><a href="about.html">About Us</a></li>--}}
+                            {{--<li><a href="contact.html">Contact Us</a></li>--}}
+                            {{--<li><a href="blog.html">Blog</a></li>--}}
+                            {{--<li><a href="blog-fullwidth.html">Blog Full Width</a></li>--}}
+                            {{--<li><a href="blog-post.html">Blog Post</a></li>--}}
+                            {{--<li><a href="faq.html">FAQ</a></li>--}}
+                            {{--<li><a href="terms.html">Terms & Conditions</a></li>--}}
+                            {{--<li><a href="{{ url('register') }}">注&nbsp;册</a></li>--}}
+                            {{--<li><a href="{{ url('login') }}">登&nbsp;录</a></li>--}}
+                            {{--<li>--}}
+                                {{--<a href="{{ url('logout') }}"--}}
+                                   {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                    {{--退出--}}
+                                {{--</a>--}}
+                                {{--<form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">--}}
+                                    {{--{{ csrf_field() }}--}}
+                                {{--</form>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
                 </ul>
             </div><!-- /.col -->
 
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul class="right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-language">English</a>
-                        <ul class="dropdown-menu" role="menu" >
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Turkish</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tamil</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Russian</a></li>
-                        </ul>
+                    {{--<li class="dropdown">--}}
+                        {{--<a class="dropdown-toggle"  data-toggle="dropdown" href="#change-language">English</a>--}}
+                        {{--<ul class="dropdown-menu" role="menu" >--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Turkish</a></li>--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tamil</a></li>--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Russian</a></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
+                    {{--<li class="dropdown">--}}
+                        {{--<a class="dropdown-toggle"  data-toggle="dropdown" href="#change-currency">Dollar (US)</a>--}}
+                        {{--<ul class="dropdown-menu" role="menu">--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Euro (EU)</a></li>--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Turkish Lira (TL)</a></li>--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Indian Rupee (INR)</a></li>--}}
+                            {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dollar (US)</a></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
+                    @if(!Auth::check())
+                    <li><a href="{{ url('register') }}">注&nbsp;册</a></li>
+                    <li><a href="{{ url('login') }}">登&nbsp;录</a></li>
+                    @else
+                        <li>
+                        <a href="{{ url('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            退出
+                        </a>
+                        <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-currency">Dollar (US)</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Euro (EU)</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Turkish Lira (TL)</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Indian Rupee (INR)</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dollar (US)</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="authentication.html">Register</a></li>
-                    <li><a href="authentication.html">Login</a></li>
+                    @endif
                 </ul>
             </div><!-- /.col -->
         </div><!-- /.container -->
@@ -130,7 +154,7 @@
             <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                 <!-- ============================================================= LOGO ============================================================= -->
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{url('/')}}">
                         <!--<img alt="logo" src="/assets/images/logo.svg" width="233" height="54"/>-->
                         <!--<object id="sp" type="image/svg+xml" data="/assets/images/logo.svg" width="233" height="54"></object>-->
                         <svg width="233px" height="54px" viewBox="0 0 233 54" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -163,19 +187,19 @@
                         <i class="fa fa-phone"></i> (+800) 123 456 7890
                     </div>
                     <div class="contact inline">
-                        <i class="fa fa-envelope"></i> contact@<span class="le-color">oursupport.com</span>
+                        <i class="fa fa-envelope"></i> contact@<span class="le-color">shanyutiwen.com</span>
                     </div>
                 </div><!-- /.contact-row -->
                 <!-- ============================================================= SEARCH AREA ============================================================= -->
                 <div class="search-area">
                     <form>
                         <div class="control-group">
-                            <input class="search-field" placeholder="Search for item" />
+                            <input class="search-field" placeholder="请输入搜索内容" />
 
                             <ul class="categories-filter animate-dropdown">
                                 <li class="dropdown">
 
-                                    <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">all categories</a>
+                                    <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">所有分类</a>
 
                                     <ul class="dropdown-menu" role="menu" >
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html">laptops</a></li>
@@ -198,10 +222,10 @@
                 <div class="top-cart-row-container">
                     <div class="wishlist-compare-holder">
                         <div class="wishlist ">
-                            <a href="#"><i class="fa fa-heart"></i> wishlist <span class="value">(21)</span> </a>
+                            <a href="#"><i class="fa fa-heart"></i> 心愿清单 <span class="value">(21)</span> </a>
                         </div>
                         <div class="compare">
-                            <a href="#"><i class="fa fa-exchange"></i> compare <span class="value">(2)</span> </a>
+                            <a href="#"><i class="fa fa-exchange"></i> 找相似 <span class="value">(2)</span> </a>
                         </div>
                     </div>
 
@@ -217,7 +241,7 @@
                                 </div>
 
                                 <div class="total-price-basket">
-                                    <span class="lbl">your cart:</span>
+                                    <span class="lbl">购物车:</span>
                                     <span class="total-price">
                         <span class="sign">$</span><span class="value">3219,00</span>
                     </span>
@@ -621,7 +645,7 @@
             <div class="container">
                 <div class="col-xs-12 col-sm-6 no-margin">
                     <div class="copyright">
-                        &copy; <a href="index.html">Media Center</a> - all rights reserved
+                        &copy; <a href="{{url('/')}}">SHOPPING</a> - 版权
                     </div><!-- /.copyright -->
                 </div>
                 <div class="col-xs-12 col-sm-6 no-margin">
@@ -644,12 +668,12 @@
 
 <div class="config open">
     <div class="config-options">
-        <h4>Pages</h4>
+        <h4>页面</h4>
         <ul class="list-unstyled animate-dropdown">
             <li class="dropdown">
-                <button class="dropdown-toggle btn le-button btn-block" data-toggle="dropdown">View Pages</button>
+                <button class="dropdown-toggle btn le-button btn-block" data-toggle="dropdown">所有页面</button>
                 <ul class="dropdown-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{url('/')}}">首页</a></li>
                     <li><a href="index-2.html">Home Alt</a></li>
                     <li><a href="category-grid.html">Category - Grid/List</a></li>
                     <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
@@ -664,23 +688,23 @@
                     <li><a href="blog-post.html">Blog Post</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="authentication.html">Login/Register</a></li><li><a href="http://www.moke8.com">More</a></li>
+                    <li><a href="authentication.html">Login/Register</a></li>
                 </ul>
             </li>
         </ul>
-        <h4>Header Styles</h4>
+        <h4>皮肤风格</h4>
+        {{--<ul class="list-unstyled">--}}
+            {{--<li><a href="index.html1">Header 1</a></li>--}}
+            {{--<li><a href="index.html">Header 2</a></li>--}}
+        {{--</ul>--}}
+        <h4>换肤</h4>
         <ul class="list-unstyled">
-            <li><a href="index.html1">Header 1</a></li>
-            <li><a href="index.html">Header 2</a></li>
-        </ul>
-        <h4>Colors</h4>
-        <ul class="list-unstyled">
-            <li><a class="changecolor green-text" href="#" title="Green color">Green</a></li>
-            <li><a class="changecolor blue-text" href="#" title="Blue color">Blue</a></li>
-            <li><a class="changecolor red-text" href="#" title="Red color">Red</a></li>
-            <li><a class="changecolor orange-text" href="#" title="Orange color">Orange</a></li>
-            <li><a class="changecolor navy-text" href="#" title="Navy color">Navy</a></li>
-            <li><a class="changecolor dark-green-text" href="#" title="Darkgreen color">Dark Green</a></li>
+            <li><a class="changecolor green-text" href="#" title="Green color">青青草原</a></li>
+            <li><a class="changecolor blue-text" href="#" title="Blue color">天空蓝</a></li>
+            <li><a class="changecolor red-text" href="#" title="Red color">热情火</a></li>
+            <li><a class="changecolor orange-text" href="#" title="Orange color">橘子红了</a></li>
+            <li><a class="changecolor navy-text" href="#" title="Navy color">深蓝色</a></li>
+            <li><a class="changecolor dark-green-text" href="#" title="Darkgreen color">碧绿色</a></li>
         </ul>
     </div>
     <a class="show-theme-options" href="#"><i class="fa fa-wrench"></i></a>

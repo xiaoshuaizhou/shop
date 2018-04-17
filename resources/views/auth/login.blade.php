@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <form role="form" class="login-form cf-style-1" method="POST" action="{{ route('login') }}" >
+                        <form role="form" class="login-form cf-style-1" method="POST" action="{{ url('login') }}" >
                             @csrf
 
                             <div class="field-row">

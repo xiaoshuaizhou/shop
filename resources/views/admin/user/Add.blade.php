@@ -18,7 +18,7 @@
                         @csrf
                         <div class="span12 field-box">
                             <label>用户名:</label>
-                            <input class="span9" type="text" name="name"/>
+                            <input class="span9" type="text" name="name" value="{{ old('name') }}"/>
                             @if ($errors->has('name'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('name') }}</strong>
@@ -28,7 +28,7 @@
 
                         <div class="span12 field-box">
                             <label>真实名称:</label>
-                            <input class="span9" type="text" name="truename"/>
+                            <input class="span9" type="text" name="truename" value="{{ old('truename') }}"/>
                             @if ($errors->has('truename'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('truename') }}</strong>
@@ -38,7 +38,7 @@
 
                         <div class="span12 field-box">
                             <label>昵称:</label>
-                            <input class="span9" type="text" name="nickname"/>
+                            <input class="span9" type="text" name="nickname" value="{{ old('nickname') }}"/>
                             @if ($errors->has('nickname'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('nickname') }}</strong>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="span12 field-box">
                             <label>公司:</label>
-                            <input class="span9" name="company" type="text" />
+                            <input class="span9" name="company" type="text" value="{{ old('company') }}" />
                             @if ($errors->has('company'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('company') }}</strong>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="span12 field-box">
                             <label>邮箱:</label>
-                            <input class="span9" name="email"  type="email" />
+                            <input class="span9" name="email"  type="email" value="{{ old('email') }}" />
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('email') }}</strong>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="span12 field-box">
                             <label>电话:</label>
-                            <input class="span9" name="phone" type="text" />
+                            <input class="span9" name="phone" type="text" value="{{ old('phone') }}" />
                             @if ($errors->has('phone'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('phone') }}</strong>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="span12 field-box">
                             <label>网址:</label>
-                            <input class="span9" name="website" type="text" />
+                            <input class="span9" name="website" type="text" value="{{ old('website') }}" />
                             @if ($errors->has('website'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('website') }}</strong>
@@ -121,25 +121,25 @@
                         <div class="span12 field-box">
                             <label>地址:</label>
                             <div class="address-fields">
-                                <input class="span12" type="text" name="detailaddress" placeholder="详细地址" />
+                                <input class="span12" type="text" name="detailaddress" placeholder="详细地址" value="{{ old('detailaddress') }}" />
                                 @if ($errors->has('detailaddress'))
                                     <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('detailaddress') }}</strong>
                                     </span>
                                 @endif
-                                <input class="span12 small" type="text" name="province" placeholder="省份" />
+                                <input class="span12 small" type="text" name="province" placeholder="省份" value="{{ old('province') }}" />
                                 @if ($errors->has('privince'))
                                     <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('province') }}</strong>
                                     </span>
                                 @endif
-                                <input class="span12 small" type="text" name="city" placeholder="城市" />
+                                <input class="span12 small" type="text" name="city" placeholder="城市" value="{{ old('city') }}" />
                                 @if ($errors->has('city'))
                                     <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('city') }}</strong>
                                     </span>
                                 @endif
-                                <input class="span12 small last" type="text" name="postcode" placeholder="邮编" />
+                                <input class="span12 small last" type="text" name="postcode" placeholder="邮编" value="{{ old('postcode') }}" />
                                 @if ($errors->has('postcode'))
                                     <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('postcode') }}</strong>
@@ -149,7 +149,7 @@
                         </div>
                         <div class="span12 field-box textarea">
                             <label>备注:</label>
-                            <textarea class="span9" name="mark"></textarea>
+                            <textarea class="span9" name="mark">{{old('mark')}}</textarea>
                             @if ($errors->has('mard'))
                                 <span class="invalid-feedback error">
                                         <strong style="font-color:red;">{{ $errors->first('mark') }}</strong>
