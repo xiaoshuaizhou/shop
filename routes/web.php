@@ -76,5 +76,8 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/category/edit/{id}', 'Admin\CategoryController@edit');
     Route::post('/category/update', 'Admin\CategoryController@update');
     Route::get('/category/del/{id}', 'Admin\CategoryController@destroy');
-
+    //商品
+    Route::get('/product/list', 'Admin\ProductController@list');
+    Route::get('/product/add', 'Admin\ProductController@add');
+    Route::post('/product/create', 'Admin\ProductController@create');
 });

@@ -277,12 +277,12 @@
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-glass"></i>
-                <span>订单管理</span>
+                <span>商品管理</span>
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="#">订单列表</a></li>
-                <li><a href="#">加入分类</a></li>
+                <li><a href="{{url('/admin/product/list')}}">商品列表</a></li>
+                <li><a href="{{url('/admin/product/add')}}">添加商品</a></li>
             </ul>
         </li>
 
