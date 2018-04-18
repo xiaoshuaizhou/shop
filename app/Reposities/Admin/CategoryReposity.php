@@ -67,7 +67,7 @@ class CategoryReposity
      * @param string $p
      * @return array
      */
-    public function setPrefix($data, $p = '|--')
+    public function setPrefix($data, $p = '|------')
     {
         $tree = [];
         $num = 1;
@@ -90,6 +90,53 @@ class CategoryReposity
         }
 
         return $tree;
+    }
+
+    /**
+     * 根据主键查询数据
+     * @param $id
+     * @return mixed|static
+     */
+    public function getCateById($id)
+    {
+        return $this->category->where('cateid', $id)->first();
+    }
+
+    /**
+     * @param $data
+     * @return bool
+     */
+    public function update($data)
+    {
+        if (empty($data['cateid'])){
+            return redirect()->withErrors('参数错误');
+        }
+        return $this->category->where('cateid', $data['cateid'])->update([
+            'title' => $data['title'],
+            'parent_id' => $data['parent_id']
+        ]);
+    }
+
+    /**
+     * @param $id
+     * @return $this
+     * @throws \Exception
+     */
+    public function delete($id)
+    {
+        if (empty($id)){
+            return redirect()->back()->withErrors('参数错误');
+        }
+
+        $cate = $this->category->where('parent_id', $id)->first();
+        if ($cate){
+            return redirect()->back()->withErrors('改分类下有子类，不允许删除');
+        }
+
+        $res = $this->category->where('cateid', $id)->delete();
+        if ($res){
+            return redirect()->back()->withErrors('删除成功', 'success');
+        }
     }
 
 }

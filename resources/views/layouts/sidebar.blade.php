@@ -276,6 +276,18 @@
 
         <li>
             <a class="dropdown-toggle" href="#">
+                <i class="icon-glass"></i>
+                <span>订单管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="#">订单列表</a></li>
+                <li><a href="#">加入分类</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="dropdown-toggle" href="#">
                 <i class="icon-edit"></i>
                 <span>表单</span>
                 <i class="icon-chevron-down"></i>

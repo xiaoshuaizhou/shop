@@ -9,56 +9,56 @@
         <div id="pad-wrapper" class="users-list">
             <div class="row-fluid header">
                 <h3>会员列表</h3>
-                <div class="span10 pull-right">
-                    <input type="text" class="span5 search" placeholder="" />
+                {{--<div class="span10 pull-right">--}}
+                    {{--<input type="text" class="span5 search" placeholder="" />--}}
 
-                    <!-- custom popup filter -->
-                    <!-- styles are located in css/elements.css -->
-                    <!-- script that enables this dropdown is located in js/theme.js -->
+                    {{--<!-- custom popup filter -->--}}
+                    {{--<!-- styles are located in css/elements.css -->--}}
+                    {{--<!-- script that enables this dropdown is located in js/theme.js -->--}}
 
-                    <div class="ui-dropdown">
-                        <div class="head" data-toggle="tooltip" title="点击!">
-                            查询会员
-                            <i class="arrow-down"></i>
-                        </div>
-                        <div class="dialog">
-                            <div class="pointer">
-                                <div class="arrow"></div>
-                                <div class="arrow_border"></div>
-                            </div>
-                            <form id="w3" action="" method="post">
-                                @csrf
-                                <div class="body">
-                                    <p class="title">
-                                        查询用户:
-                                    </p>
-                                    <div class="form">
-                                        <select>
-                                            <option />Name
-                                            <option />Email
-                                            <option />Number of orders
-                                            <option />Signed up
-                                            <option />Last seen
-                                        </select>
-                                        <select>
-                                            <option />is equal to
-                                            <option />is not equal to
-                                            <option />is greater than
-                                            <option />starts with
-                                            <option />contains
-                                        </select>
-                                        <input type="text" />
-                                        <a class="btn-flat small" onclick="document.getElementById('w3').submit()">查询</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    {{--<div class="ui-dropdown">--}}
+                        {{--<div class="head" data-toggle="tooltip" title="点击!">--}}
+                            {{--查询分类--}}
+                            {{--<i class="arrow-down"></i>--}}
+                        {{--</div>--}}
+                        {{--<div class="dialog">--}}
+                            {{--<div class="pointer">--}}
+                                {{--<div class="arrow"></div>--}}
+                                {{--<div class="arrow_border"></div>--}}
+                            {{--</div>--}}
+                            {{--<form id="w3" action="" method="post">--}}
+                                {{--@csrf--}}
+                                {{--<div class="body">--}}
+                                    {{--<p class="title">--}}
+                                        {{--查询:--}}
+                                    {{--</p>--}}
+                                    {{--<div class="form">--}}
+                                        {{--<select>--}}
+                                            {{--<option />Name--}}
+                                            {{--<option />Email--}}
+                                            {{--<option />Number of orders--}}
+                                            {{--<option />Signed up--}}
+                                            {{--<option />Last seen--}}
+                                        {{--</select>--}}
+                                        {{--<select>--}}
+                                            {{--<option />is equal to--}}
+                                            {{--<option />is not equal to--}}
+                                            {{--<option />is greater than--}}
+                                            {{--<option />starts with--}}
+                                            {{--<option />contains--}}
+                                        {{--</select>--}}
+                                        {{--<input type="text" />--}}
+                                        {{--<a class="btn-flat small" onclick="document.getElementById('w3').submit()">查询</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</form>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <a href="{{url('/admin/category/add')}}" class="btn-flat success pull-right">
                         <span>&#43;</span>
-                        添加新用户
+                        添加新分类
                     </a>
-                </div>
+                {{--</div>--}}
             </div>
 
             <!-- Users table -->
@@ -69,7 +69,7 @@
                         <th class="span4 sortable" style="text-align: center;">
                             分类ID
                         </th>
-                        <th class="span3 sortable" style="text-align: center;">
+                        <th class="span3 sortable" >
                             <span class="line"></span>分类名称
                         </th>
 
@@ -80,21 +80,36 @@
                     </thead>
                     <tbody>
                     <!-- row -->
-
+                    @foreach($cats as $cat)
                         <tr class="first">
 
                             <td style="text-align: center;">
-
+                                {{$cat->cateid}}
                             </td>
-                            <td style="text-align: center;">
-
+                            <td ">
+                                {{$cat->title}}
                             </td>
                             <td class="align-right" style="text-align: center;">
-                                <a href="">编辑</a>
-                                <a href="">删除</a>
+                                <a href="{{url('admin/category/edit')}}/{{$cat->cateid}}">编辑</a>
+                                <a href="{{url('admin/category/del')}}/{{$cat->cateid}}">删除</a>
                             </td>
                         </tr>
-
+                    @endforeach
+                    @if(count($errors) > 0)
+                        <div class="alert alert-danger span10 inline-input">
+                            <ul style="color:red; text-align: center;">
+                                @foreach ($errors->all() as $error)
+                                    <ol style="text-align: center;">{{ $error }}</ol>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @elseif (count($errors->success) > 0)
+                        <div class="alert alert-success span10 inline-input">
+                            <ul style="color:green; text-align: center;">
+                                    <ol style="text-align: center;">删除成功</ol>
+                            </ul>
+                        </div>
+                    @endif
                     </tbody>
                 </table>
             </div>

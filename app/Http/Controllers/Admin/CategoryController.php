@@ -33,7 +33,9 @@ class CategoryController extends Controller
      */
     public function list()
     {
-        return view('admin.category.list');
+        $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
+
+        return view('admin.category.list', compact('cats'));
     }
 
     /**
@@ -42,8 +44,6 @@ class CategoryController extends Controller
     public function add()
     {
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
-
-//        dd($cats);
 
         return view('admin.category.add', compact('cats'));
     }
@@ -58,5 +58,41 @@ class CategoryController extends Controller
         flash('添加分类成功','success');
 
         return redirect('/admin/category/list');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($id)
+    {
+        $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
+        $cat = $this->categoryReposity->getCateById($id);
+
+        return view('admin.category.edit', compact('cats', 'cat'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request)
+    {
+        $this->categoryReposity->update($request->all());
+        flash('修改成功')->success()->important();
+
+        return redirect('admin/category/list');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy($id)
+    {
+        $this->categoryReposity->delete($id);
+
+        return redirect()->back();
     }
 }
