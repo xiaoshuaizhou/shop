@@ -43,7 +43,9 @@ class ProductController extends Controller
      */
     public function list()
     {
-        return view('admin.product.list');
+        $products = $this->productReposity->getAllProducts();
+
+        return view('admin.product.list', compact('products'));
     }
 
     /**
@@ -71,7 +73,7 @@ class ProductController extends Controller
         $post = $request->all();
         $this->productReposity->create($pics , $post);
 
-        return redirect()->back()->withErrors('添加成功', 'success');
+        return redirect('admin/product/list')->withErrors('添加成功', 'success');
 
     }
 

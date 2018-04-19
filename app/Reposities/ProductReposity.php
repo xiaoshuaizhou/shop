@@ -36,6 +36,15 @@ class ProductReposity
         $post['saleprice'] = $data['saleprice'];
         $post['cover'] = $pics['cover'];
         $post['pics'] = $pics['pics'];
+
         return $this->product->create($post);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getAllProducts()
+    {
+        return $this->product->paginate(1);
     }
 }
