@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\Admin\Product;
 use App\Reposities\ProductReposity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,7 +33,8 @@ class ProductController extends Controller
     public function __construct(
         CategoryReposity $categoryReposity,
         ProductReposity $productReposity
-    ){
+    )
+    {
         $this->middleware('admin');
         $this->categoryReposity = $categoryReposity;
         $this->productReposity = $productReposity;
@@ -71,7 +73,7 @@ class ProductController extends Controller
         $fileName = time() . '-' . $file->getClientOriginalName();
         $pics = $this->upload($file, $fileName, $pics);
         $post = $request->all();
-        $this->productReposity->create($pics , $post);
+        $this->productReposity->create($pics, $post);
 
         return redirect('admin/product/list')->withErrors('添加成功', 'success');
 
@@ -89,16 +91,93 @@ class ProductController extends Controller
     {
         $disk = \Storage::disk('qiniu');
 
-        $disk->writeStream($fileName,  fopen($file->getRealPath(), 'r') );
+        $disk->writeStream($fileName, fopen($file->getRealPath(), 'r'));
         $coverUrl = $disk->getUrl($fileName);
 
         $picsArr = [];
-        foreach ($pics as $k => $pic){
+        foreach ($pics as $k => $pic) {
             $picsName = microtime() . '-' . $pic->getClientOriginalName();
-            $disk->writeStream($picsName,  fopen($file->getRealPath(), 'r') );
+            $disk->writeStream($picsName, fopen($pic->getRealPath(), 'r'));
             $picsArr[$k] = $disk->getUrl($picsName);
         }
 
-        return ['cover' => $coverUrl , 'pics' => json_encode($picsArr)];
+        return ['cover' => $coverUrl, 'pics' => json_encode($picsArr)];
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit($id)
+    {
+        $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
+        $product = $this->productReposity->getProductById($id);
+
+        return view('admin.product.edit', compact('cats', 'product'));
+    }
+
+    /**
+     * @param Request $request
+     * @return $this
+     */
+    public function update(Request $request)
+    {
+        $file = $request->file('cover');
+        $pics = $request->file('pics');
+        $post = $request->all();
+
+        if (!is_null($file) || !is_null($pics)){
+            if (!is_null($file)){
+                $fileName = time() . '-' . $file->getClientOriginalName();
+            }else{
+                $fileName = '';
+            }
+            $pics = $this->removeAndUpload($file, $fileName, $pics, $request->id);
+            $this->productReposity->update($request->id, $pics, $post);
+        }else{
+            $this->productReposity->update($request->id , '', $post);
+
+        }
+
+
+        return redirect('admin/product/list')->withErrors('修改成功', 'success');
+
+    }
+
+    /**
+     * @param $product
+     * @param $file
+     * @param $fileName
+     * @param $pics
+     * @return array
+     * @throws \League\Flysystem\FileExistsException
+     */
+    private function removeAndUpload($file, $fileName, $pics, $id)
+    {
+        $disk = \Storage::disk('qiniu');
+
+        if (!empty($fileName)){
+
+            $disk->writeStream($fileName, fopen($file->getRealPath(), 'r'));
+            $coverUrl = $disk->getUrl($fileName);
+        }else{
+            $product = Product::where('productid', $id)->first();
+            $coverUrl = $product->cover;
+        }
+
+        if (!is_null($pics)) {
+            $picsArr = [];
+            foreach ($pics as $k => $pic) {
+                $picsName = microtime() . '-' . $pic->getClientOriginalName();
+                $disk->writeStream($picsName, fopen($pic->getRealPath(), 'r'));
+                $picsArr[$k] = $disk->getUrl($picsName);
+            }
+            return ['cover' => $coverUrl, 'pics' => json_encode($picsArr)];
+
+        } else {
+            return ['cover' => $coverUrl];
+        }
+    }
+
+
 }

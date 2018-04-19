@@ -80,4 +80,6 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/product/list', 'Admin\ProductController@list');
     Route::get('/product/add', 'Admin\ProductController@add');
     Route::post('/product/create', 'Admin\ProductController@create');
+    Route::get('/product/edit/{id}', 'Admin\ProductController@edit');
+    Route::post('/product/update', 'Admin\ProductController@update');
 });

@@ -123,6 +123,7 @@
                                 {{$product->istui == 1 ? '是' : '否'}}
                             </td>
                             <td class="align-right" style="text-align: center;">
+                                <a href="{{url('/admin/product/edit', ['id' => $product->productid])}}">编辑</a> |
                                 <a href="{{url('/admin/product/dwon', ['id' => $product->productid])}}">上架</a> |
                                 <a href="{{url('/admin/product/up', ['id' => $product->productid])}}">下架</a> |
                                 <a href="{{url('/admin/product/delete', ['id' => $product->productid])}}">删除</a>
