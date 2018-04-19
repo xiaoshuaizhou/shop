@@ -9,89 +9,135 @@
             <div class="row-fluid form-wrapper">
                 <!-- left column -->
                 <div class="span8 column">
-                    <form />
+                    <form  action="{{url('admin/product/create')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="field-box">
                         <label>商品分类:</label>
                         <div class="ui-select">
-                            <select>
-                                <option selected="" />Dropdown
-                                <option />Custom selects
-                                <option />Pure css styles
+                            <select name="cateid">
+                                @foreach($cats as $cat)
+                                <option value="{{$cat->cateid}}" />{{$cat->title}}
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="field-box">
                         <label>商品名称</label>
-                        <input class="span8" type="text" />
+                        <input class="span8" name="title" type="text" value="{{old('title')}}" />
+                        @if ($errors->has('title'))
+                            <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="field-box">
                         <label>商品描述:</label>
-                        <div class="wysi-column">
-                            <textarea id="wysi" class="span10 wysihtml5" rows="5"></textarea>
+                        <div class="wysi-column span10">
+                            <textarea id="wysi" name="descr" class="span8 wysihtml5" rows="5">{{old('descr')}}</textarea>
+                            @if ($errors->has('descr'))
+                                <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('descr') }}</strong>
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="field-box">
                         <label>商品价格</label>
-                        <input class="span8" type="text" />
+                        <input class="span8" name="price" type="text" value="{{old('price')}}" />
+                        @if ($errors->has('price'))
+                            <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('price') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="field-box">
                         <label>是否热卖:</label>
                         <div class="span8">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
+                                <input type="radio" name="ishot" id="optionsRadios1" value="1" checked="" />
                                 是
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                <input type="radio" name="ishot" id="optionsRadios2" value="0" />
                                 否
                             </label>
+                            @if ($errors->has('ishot'))
+                                <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('ishot') }}</strong>
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="field-box">
                         <label>是否促销:</label>
                         <div class="span8">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
+                                <input type="radio" name="issale" id="optionsRadios1" value="1" checked="" />
                                 是
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                <input type="radio" name="issale" id="optionsRadios2" value="0" />
                                 否
                             </label>
+                            @if ($errors->has('issale'))
+                                <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('issale') }}</strong>
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="field-box">
                         <label>促销价格</label>
-                        <input class="span8" type="text" />
+                        <input class="span8" name="saleprice" type="text" value="{{old('saleprice')}}" />
+                        @if ($errors->has('saleprice'))
+                            <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('saleprice') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="field-box">
                         <label>库存</label>
-                        <input class="span8" type="text" />
+                        <input class="span8" name="num" type="text"  value="{{old('num')}}"/>
+                        @if ($errors->has('num'))
+                            <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('num') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="field-box">
                         <label>是否上架:</label>
                         <div class="span8">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
+                                <input type="radio" name="ison" id="optionsRadios1" value="1" checked="" />
                                 是
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                <input type="radio" name="ison" id="optionsRadios2" value="0" />
                                 否
                             </label>
+                            @if ($errors->has('ison'))
+                                <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('ison') }}</strong>
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="field-box">
                         <label>是否推荐:</label>
                         <div class="span8">
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" />
+                                <input type="radio" name="istui" id="optionsRadios1" value="1" checked=""  />
                                 是
                             </label>
                             <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                <input type="radio" name="istui" id="optionsRadios2" value="0" />
                                 否
                             </label>
+                            @if ($errors->has('istui'))
+                                <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('istui') }}</strong>
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="field-box">
@@ -100,9 +146,14 @@
                         <div class="span3 avatar-box">
                             <div class="personal-image">
                                 <img src="" class="avatar img-circle" />
-                                <input type="file" />
+                                <input type="file" name="cover" />
                             </div>
                         </div>
+                        @if ($errors->has('cover'))
+                            <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('cover') }}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="field-box">
                         <label>商品图片:</label>
@@ -110,17 +161,43 @@
                         <div class="span3 avatar-box">
                             <div class="personal-image">
                                 <img src="" class="avatar img-circle" />
-                                <input type="file" />
+                                <input name="pics[]" type="file" />
                             </div>
                         </div>
+                        @if ($errors->has('pics'))
+                            <span class="invalid-feedback error">
+                                    <strong style="font-color:red;">{{ $errors->first('pics') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+
+                    <div id="parent" class="field-box"></div>
+
+                    <div class="field-box">
+                        <button type="button" name="pics[]" id="btn" class="icon-plus btn btn-glow btn-flat success  ">添加图片</button>
                     </div>
 
                     <div class="span11 field-box actions">
-                        <input type="submit" class="btn btn-glow primary" value="创建" />
+                        <input type="submit" class="btn btn-primary" value="创建商品" />
                         <span>或者</span>
                         <input type="reset" value="取消" class="reset" />
                     </div>
                     </form>
+                    @if(count($errors) > 0)
+                        <div class="alert alert-danger span10 inline-input">
+                            <ul style="color:red; text-align: center;">
+                                @foreach ($errors->all() as $error)
+                                    <ol style="text-align: center;">{{ $error }}</ol>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @elseif (count($errors->success) > 0)
+                        <div class="alert alert-success span10 inline-input">
+                            <ul style="color:green; text-align: center;">
+                                <ol style="text-align: center;">添加成功</ol>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
 
                 <!-- right column -->
@@ -302,6 +379,22 @@
         $(".wysihtml5").wysihtml5({
             "font-styles": false
         });
+    });
+    //添加商品图片
+    $('#btn').on('click',function(){
+        $('#parent').append('' +
+            "<div class=\"span3 avatar-box\">\n" +
+                "<div class=\"personal-image\">\n" +
+                    "<img src=\"\" class=\"avatar img-circle\" />\n" +
+                    "<input name=\"pics[]\" type=\"file\" />\n" +
+                    "<button type=\"button\" id=\"btnmins\" class=\"icon-minus btn btn-glow btn-flat warning  \">删除图片</button>\n" +
+                "</div>\n" +
+            "</div>\n"
+        )
+    });
+    //删除图片
+    $(document).on('click','.icon-minus',function(){
+        $(this).parents(".avatar-box").remove();
     });
 </script>
 
