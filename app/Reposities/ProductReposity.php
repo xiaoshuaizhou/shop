@@ -82,7 +82,34 @@ class ProductReposity
             $post['pics'] = $pics['pics'];
         }
 
-
         return !! $this->product->where('productid', $id)->update($post);
+    }
+
+    /**
+     * @param $id
+     * @return bool|null
+     * @throws \Exception
+     */
+    public function delete($id)
+    {
+        return $this->product->where('productid', $id)->delete();
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function onIson($id)
+    {
+        return $this->product->where('productid', $id)->update(['ison' => '1']);
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function downIson($id)
+    {
+        return $this->product->where('productid', $id)->update(['ison' => '0']);
     }
 }

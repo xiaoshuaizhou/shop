@@ -35,7 +35,7 @@ class ProductRequest extends FormRequest
                 Rule::in(['0', '1']),
             ],
             'saleprice' => 'required',
-            'num' => 'required',
+            'num' => 'required|max:8',
             'istui' => [
                 'required',
                 Rule::in(['0', '1']),
@@ -70,7 +70,8 @@ class ProductRequest extends FormRequest
             'istui.in' => '是否推销参数错误',
             'ison.required' => '是否上架不能为空',
             'cover.required' => '商品封面不能为空',
-            'pics.required' => '商品图片不能为空'
+            'pics.required' => '商品图片不能为空',
+            'num.max' => '库存最大8位数'
         ];
     }
 }

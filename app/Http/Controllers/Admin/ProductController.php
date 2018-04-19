@@ -179,5 +179,28 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @throws \Exception
+     */
+    public function destroy($id)
+    {
+        $this->productReposity->delete($id);
 
+        return redirect('admin/product/list')->withErrors('删除成功', 'success');
+    }
+
+    public function dwon($id)
+    {
+        $this->productReposity->onIson($id);
+        return redirect('admin/product/list')->withErrors('上架成功', 'success');
+
+    }
+
+    public function up($id)
+    {
+        $this->productReposity->downIson($id);
+
+        return redirect('admin/product/list')->withErrors('下架成功', 'success');
+    }
 }
