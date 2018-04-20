@@ -7,20 +7,20 @@
 
                     <div id="owl-single-product">
                         <div class="single-product-gallery-item" id="slide1">
-                            <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
-                                <img class="img-responsive" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/product-gallery-01.jpg" />
+                            <a data-rel="prettyphoto" href="#">
+                                <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
 
                         <div class="single-product-gallery-item" id="slide2">
                             <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
-                                <img class="img-responsive" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/product-gallery-01.jpg" />
+                                <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
 
                         <div class="single-product-gallery-item" id="slide3">
                             <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
-                                <img class="img-responsive" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/product-gallery-01.jpg" />
+                                <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
                     </div><!-- /.single-product-slider -->
@@ -29,41 +29,11 @@
                     <div class="single-product-gallery-thumbs gallery-thumbs">
 
                         <div id="owl-single-product-thumbnails">
+                            @foreach(json_decode($product->pics, true) as $pic)
                             <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
+                                <img width="67" alt="" src="{{$pic}}" data-echo="{{$pic}}" />
                             </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="0" href="#slide1">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="1" href="#slide2">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
-
-                            <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide3">
-                                <img width="67" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/gallery-thumb-01.jpg" />
-                            </a>
+                            @endforeach
                         </div><!-- /#owl-single-product-thumbnails -->
 
                         <div class="nav-holder left hidden-xs">
@@ -80,30 +50,21 @@
             </div><!-- /.gallery-holder -->
             <div class="no-margin col-xs-12 col-sm-7 body-holder">
                 <div class="body">
-                    <div class="star-holder inline"><div class="star" data-score="4"></div></div>
-                    <div class="availability"><label>Availability:</label><span class="available">  in stock</span></div>
-
-                    <div class="title"><a href="#">VAIO fit laptop - windows 8 SVF14322CXW</a></div>
-                    <div class="brand">sony</div>
-
-                    <div class="social-row">
-                        <span class="st_facebook_hcount"></span>
-                        <span class="st_twitter_hcount"></span>
-                        <span class="st_pinterest_hcount"></span>
+                    <div class="availability">
+                        <label><h1>{{$product->title}}</h1></label>
                     </div>
 
-                    <div class="buttons-holder">
-                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
-                        <a class="btn-add-to-compare" href="#">add to compare list</a>
+                    <div class="title">
+                        <a href="#"><h2>{{$product->title}}</h2></a>
                     </div>
 
                     <div class="excerpt">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare turpis non risus semper dapibus. Quisque eu vehicula turpis. Donec sodales lacinia eros, sit amet auctor tellus volutpat non.</p>
+                        <p>{!! $product->descr !!}.</p>
                     </div>
 
                     <div class="prices">
-                        <div class="price-current">$1740.00</div>
-                        <div class="price-prev">$2199.00</div>
+                        <div class="price-current">现价： ￥ {{$product->saleprice}}元</div>
+                        <div class="price-prev" style=" text-decoration: line-through;">原价： ￥ {{$product->price}}元</div>
                     </div>
 
                     <div class="qnt-holder">
@@ -114,7 +75,7 @@
                                 <a class="plus" href="#add"></a>
                             </form>
                         </div>
-                        <a id="addto-cart" href="cart.html" class="le-button huge">add to cart</a>
+                        <a id="addto-cart" href="cart.html" class="le-button huge">加入购物车</a>
                     </div><!-- /.qnt-holder -->
                 </div><!-- /.body -->
 
@@ -128,64 +89,42 @@
             <div class="tab-holder">
 
                 <ul class="nav nav-tabs simple" >
-                    <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
-                    <li><a href="#additional-info" data-toggle="tab">Additional Information</a></li>
-                    <li><a href="#reviews" data-toggle="tab">Reviews (3)</a></li>
+                    <li class="active"><a href="#description" data-toggle="tab">商品描述</a></li>
+                    <li><a href="#additional-info" data-toggle="tab">附加信息</a></li>
+                    <li><a href="#reviews" data-toggle="tab">评测 (3)</a></li>
                 </ul><!-- /.nav-tabs -->
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet porttitor eros. Praesent quis diam placerat, accumsan velit interdum, accumsan orci. Nunc libero sem, elementum in semper in, sollicitudin vitae dolor. Etiam sed tempus nisl. Integer vel diam nulla. Suspendisse et aliquam est. Nulla molestie ante et tortor sollicitudin, at elementum odio lobortis. Pellentesque neque enim, feugiat in elit sed, pharetra tempus metus. Pellentesque non lorem nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                        <p>{!! $product->descr !!}.</p>
 
-                        <p>Sed consequat orci vel rutrum blandit. Nam non leo vel risus cursus porta quis non nulla. Vestibulum vitae pellentesque nunc. In hac habitasse platea dictumst. Cras egestas, turpis a malesuada mollis, magna tortor scelerisque urna, in pellentesque diam tellus sit amet velit. Donec vel rhoncus nisi, eget placerat elit. Phasellus dignissim nisl vel lectus vehicula, eget vehicula nisl egestas. Duis pretium sed risus dapibus egestas. Nam lectus felis, sodales sit amet turpis se.</p>
+                        <p>{!! $product->descr !!}.</p>
 
                         <div class="meta-row">
-                            <div class="inline">
-                                <label>SKU:</label>
-                                <span>54687621</span>
-                            </div><!-- /.inline -->
-
-                            <span class="seperator">/</span>
-
-                            <div class="inline">
-                                <label>categories:</label>
-                                <span><a href="#">-50% sale</a>,</span>
-                                <span><a href="#">gaming</a>,</span>
-                                <span><a href="#">desktop PC</a></span>
-                            </div><!-- /.inline -->
-
-                            <span class="seperator">/</span>
-
-                            <div class="inline">
-                                <label>tag:</label>
-                                <span><a href="#">fast</a>,</span>
-                                <span><a href="#">gaming</a>,</span>
-                                <span><a href="#">strong</a></span>
-                            </div><!-- /.inline -->
                         </div><!-- /.meta-row -->
                     </div><!-- /.tab-pane #description -->
 
                     <div class="tab-pane" id="additional-info">
                         <ul class="tabled-data">
                             <li>
-                                <label>weight</label>
+                                <label>重量</label>
                                 <div class="value">7.25 kg</div>
                             </li>
                             <li>
-                                <label>dimensions</label>
+                                <label>规格</label>
                                 <div class="value">90x60x90 cm</div>
                             </li>
                             <li>
-                                <label>size</label>
+                                <label>号码</label>
                                 <div class="value">one size fits all</div>
                             </li>
                             <li>
-                                <label>color</label>
+                                <label>颜色</label>
                                 <div class="value">white</div>
                             </li>
                             <li>
-                                <label>guarantee</label>
-                                <div class="value">5 years</div>
+                                <label>有效期</label>
+                                <div class="value">5 年</div>
                             </li>
                         </ul><!-- /.tabled-data -->
 
@@ -240,7 +179,9 @@
                                                 </div>
                                             </div><!-- /.meta-info -->
                                             <p class="comment-text">
-                                                Integer id purus ultricies nunc tincidunt congue vitae nec felis. Vivamus sit amet nisl convallis, faucibus risus in, suscipit sapien. Vestibulum egestas interdum tellus id venenatis.
+                                                Integer id purus ultricies nunc tincidunt congue vitae nec felis.
+                                                Vivamus sit amet nisl convallis, faucibus risus in, suscipit sapien.
+                                                Vestibulum egestas interdum tellus id venenatis.
                                             </p><!-- /.comment-text -->
                                         </div><!-- /.comment-body -->
 
@@ -271,7 +212,9 @@
                                                 </div>
                                             </div><!-- /.meta-info -->
                                             <p class="comment-text">
-                                                Integer id purus ultricies nunc tincidunt congue vitae nec felis. Vivamus sit amet nisl convallis, faucibus risus in, suscipit sapien. Vestibulum egestas interdum tellus id venenatis.
+                                                Integer id purus ultricies nunc tincidunt congue vitae nec felis.
+                                                Vivamus sit amet nisl convallis, faucibus risus in, suscipit sapien.
+                                                Vestibulum egestas interdum tellus id venenatis.
                                             </p><!-- /.comment-text -->
                                         </div><!-- /.comment-body -->
 
@@ -302,7 +245,9 @@
                                                 </div>
                                             </div><!-- /.meta-info -->
                                             <p class="comment-text">
-                                                Integer id purus ultricies nunc tincidunt congue vitae nec felis. Vivamus sit amet nisl convallis, faucibus risus in, suscipit sapien. Vestibulum egestas interdum tellus id venenatis.
+                                                Integer id purus ultricies nunc tincidunt congue vitae nec felis.
+                                                Vivamus sit amet nisl convallis, faucibus risus in, suscipit sapien.
+                                                Vestibulum egestas interdum tellus id venenatis.
                                             </p><!-- /.comment-text -->
                                         </div><!-- /.comment-body -->
 

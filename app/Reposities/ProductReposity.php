@@ -51,10 +51,11 @@ class ProductReposity
     /**
      * @param $id
      * @return \Illuminate\Database\Eloquent\Model|static
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
-    public function getProductById($id)
+    public static function getProductById($id)
     {
-        return $this->product->where('productid', $id)->firstOrFail();
+        return Product::where('productid', $id)->firstOrFail();
     }
 
     /**
@@ -112,4 +113,14 @@ class ProductReposity
     {
         return $this->product->where('productid', $id)->update(['ison' => '0']);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Support\Collection
+     */
+    public static function getProductsByCateId($id)
+    {
+        return Product::where('cateid', $id)->latest()->get();
+    }
+
 }

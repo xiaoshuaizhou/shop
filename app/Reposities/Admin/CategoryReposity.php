@@ -139,4 +139,42 @@ class CategoryReposity
         }
     }
 
+    /**
+     * 查询所有分类，只展示三级
+     * @return array
+     */
+    public function getMenu()
+    {
+        $top = $this->category->where('parent_id', 0)->latest()->get();
+        $data = [];
+        foreach ($top as $k => $item) {
+            $item['children'] = $this->category->where('parent_id', $item['cateid'])->latest()->get();
+            $data[$k] = $item;
+        }
+
+        $info = [];
+        foreach ($data as $datum => $value){
+            foreach ($value['children'] as $key => $child ){
+                $child['children'] = $this->category->where('parent_id', $child['cateid'])->latest()->get();
+                $info[$key] = $child;
+                $data[$datum] = $value;
+            }
+        }
+
+        return $data;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

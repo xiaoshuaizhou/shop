@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-class IndexController extends Controller
+class IndexController extends CommonController
 {
     public function index()
     {
-        return view('home.index.index');
+        $menus = $this->getMenu();
+
+        return view('home.index.index', compact('menus'));
     }
 }

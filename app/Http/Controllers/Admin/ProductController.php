@@ -107,11 +107,12 @@ class ProductController extends Controller
     /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function edit($id)
     {
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
-        $product = $this->productReposity->getProductById($id);
+        $product = ProductReposity::getProductById($id);
 
         return view('admin.product.edit', compact('cats', 'product'));
     }

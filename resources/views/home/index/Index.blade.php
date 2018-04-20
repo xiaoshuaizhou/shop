@@ -6,394 +6,31 @@
             <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
                 <!-- ================================== TOP NAVIGATION ================================== -->
                 <div class="side-menu animate-dropdown">
-                    <div class="head"><i class="fa fa-list"></i> all departments</div>
+                    <div class="head"><i class="fa fa-list"></i> 所有分类</div>
                     <nav class="yamm megamenu-horizontal" role="navigation">
                         <ul class="nav">
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="index-2.html">Home Alt</a></li>
-                                                    <li><a href="category-grid.html">Category - Grid/List</a></li>
-                                                    <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
-                                                    <li><a href="single-product.html">Single Product</a></li>
-                                                    <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="about.html">About Us</a></li>
-                                                    <li><a href="contact.html">Contact Us</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <ul class="list-unstyled">
-                                                    <li><a href="blog-post.html">Blog Post</a></li>
-                                                    <li><a href="faq.html">FAQ</a></li>
-                                                    <li><a href="terms.html">Terms & Conditions</a></li>
-                                                    <li><a href="authentication.html">Login/Register</a></li><li><a href="http://www.moke8.com">More</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
+                            @foreach($menus as $menu)
+                                <li class="dropdown menu-item">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$menu->title}}</a>
+                                    <ul class="dropdown-menu mega-menu">
 
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Value of the Day</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
+                                        <li class="yamm-content">
+                                            <div class="row">
+                                                @foreach($menu['children'] as $m)
+                                                    <div class="col-md-4">
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="{{url('/category/index')}}/{{$m->cateid}}">{{$m->title}}</a></li>
+                                                            @foreach($m['children'] as $child)
+                                                                <li><a href="{{url('/category/index')}}/{{$child->cateid}}">{{$child->title}}</a></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endforeach
                                             </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laptops &amp; Computers</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cameras &amp; Photography</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Smart Phones &amp; Tablets</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Video Games &amp; Consoles</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">TV &amp; Audio</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gadgets</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Car Electronic &amp; GPS</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accessories</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                                        <div class="row">
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                                    <li><a href="#">CPUs, Processors</a></li>
-                                                    <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                                    <li><a href="#">Graphics, Video Cards</a></li>
-                                                    <li><a href="#">Interface, Add-On Cards</a></li>
-                                                    <li><a href="#">Laptop Replacement Parts</a></li>
-                                                    <li><a href="#">Memory (RAM)</a></li>
-                                                    <li><a href="#">Motherboards</a></li>
-                                                    <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                                    <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-xs-12 col-lg-4">
-                                                <ul>
-                                                    <li><a href="#">Power Supplies Power</a></li>
-                                                    <li><a href="#">Power Supply Testers Sound</a></li>
-                                                    <li><a href="#">Sound Cards (Internal)</a></li>
-                                                    <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                                    <li><a href="#">Other</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown-banner-holder">
-                                                <a href="#"><img alt="" src="/assets/images/banners/banner-side.png" /></a>
-                                            </div>
-                                        </div>
-                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->                    </li>
-                                </ul>
-                            </li><!-- /.menu-item -->
-                            <li><a href="http://themeforest.net/item/media-center-electronic-ecommerce-html-template/8178892?ref=shaikrilwan">Buy this Theme</a></li>
+                                        </li>
+                                    </ul>
+                                </li><!-- /.menu-item -->
+                        @endforeach
                         </ul><!-- /.nav -->
                     </nav><!-- /.megamenu-horizontal -->
                 </div><!-- /.side-menu -->
@@ -409,19 +46,19 @@
                             <div class="container-fluid">
                                 <div class="caption vertical-center text-left">
                                     <div class="big-text fadeInDown-1">
-                                        Save up to a<span class="big"><span class="sign">$</span>400</span>
+                                        想获得一张<span class="big"><span class="sign">￥</span>400</span>现金？
                                     </div>
 
                                     <div class="excerpt fadeInDown-2">
-                                        on selected laptops<br>
-                                        & desktop pcs or<br>
+                                        速速前来<br>
+                                        快速抢购<br>
                                         smartphones
                                     </div>
                                     <div class="small fadeInDown-2">
                                         terms and conditions apply
                                     </div>
                                     <div class="button-holder fadeInDown-3">
-                                        <a href="single-product.html" class="big le-button ">shop now</a>
+                                        <a href="single-product.html" class="big le-button ">立即购买</a>
                                     </div>
                                 </div><!-- /.caption -->
                             </div><!-- /.container-fluid -->
@@ -431,17 +68,17 @@
                             <div class="container-fluid">
                                 <div class="caption vertical-center text-left">
                                     <div class="big-text fadeInDown-1">
-                                        Want a<span class="big"><span class="sign">$</span>200</span>Discount?
+                                        想获得一张<span class="big"><span class="sign">￥</span>200</span>元的优惠券?
                                     </div>
 
                                     <div class="excerpt fadeInDown-2">
-                                        on selected <br>desktop pcs<br>
+                                        速速前来 <br>快速抢购<br>
                                     </div>
                                     <div class="small fadeInDown-2">
                                         terms and conditions apply
                                     </div>
                                     <div class="button-holder fadeInDown-3">
-                                        <a href="single-product.html" class="big le-button ">shop now</a>
+                                        <a href="single-product.html" class="big le-button ">立即购买</a>
                                     </div>
                                 </div><!-- /.caption -->
                             </div><!-- /.container-fluid -->
@@ -462,7 +99,7 @@
             <div class="col-xs-12 col-lg-6 no-margin banner">
                 <a href="category-grid-2.html">
                     <div class="banner-text theblue">
-                        <h1>New Life</h1>
+                        <h1>尝尝鲜</h1>
                         <span class="tagline">Introducing New Category</span>
                     </div>
                     <img class="banner-image" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/banners/banner-narrow-01.jpg" />
@@ -471,7 +108,7 @@
             <div class="col-xs-12 col-lg-6 no-margin text-right banner">
                 <a href="category-grid-2.html">
                     <div class="banner-text right">
-                        <h1>Time &amp; Style</h1>
+                        <h1>时尚流行</h1>
                         <span class="tagline">Checkout new arrivals</span>
                     </div>
                     <img class="banner-image" alt="" src="/assets/images/blank.gif" data-echo="/assets/images/banners/banner-narrow-02.jpg" />
@@ -514,7 +151,7 @@
 
                                     <div class="hover-area">
                                         <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button">add to cart</a>
+                                            <a href="single-product.html" class="le-button">加入购物车</a>
                                         </div>
                                         <div class="wish-compare">
                                             <a class="btn-add-to-wishlist" href="#">add to wishlist</a>

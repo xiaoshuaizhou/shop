@@ -2,18 +2,33 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Reposities\Admin\CategoryReposity;
+use App\Reposities\ProductReposity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductController extends CommonController
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        return view('home.product.index');
+        $res = $this->layout();
+
+        return view('home.product.index', compact('res'));
     }
 
-    public function detail()
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     */
+    public function detail($id)
     {
-        return view('home.product.detail');
+        $product = ProductReposity::getProductById($id);
+        $res = $this->layout();
+
+        return view('home.product.detail' , compact('res', 'product'));
     }
 }
