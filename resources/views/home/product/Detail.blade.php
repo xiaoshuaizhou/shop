@@ -13,13 +13,13 @@
                         </div><!-- /.single-product-gallery-item -->
 
                         <div class="single-product-gallery-item" id="slide2">
-                            <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
+                            <a data-rel="prettyphoto" href="#">
                                 <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
 
                         <div class="single-product-gallery-item" id="slide3">
-                            <a data-rel="prettyphoto" href="images/products/product-gallery-01.jpg">
+                            <a data-rel="prettyphoto" href="#">
                                 <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
@@ -59,9 +59,12 @@
                     </div>
 
                     <div class="excerpt">
-                        <p>{!! $product->descr !!}.</p>
+                        <p>{!! $product->descr !!}</p>
                     </div>
 
+                    <div class="excerpt">
+                        <p>库存量 ： {!! $product->num !!}</p>
+                    </div>
                     <div class="prices">
                         <div class="price-current">现价： ￥ {{$product->saleprice}}元</div>
                         <div class="price-prev" style=" text-decoration: line-through;">原价： ￥ {{$product->price}}元</div>

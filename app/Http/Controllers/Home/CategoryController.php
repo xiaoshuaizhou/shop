@@ -18,7 +18,12 @@ class CategoryController extends CommonController
     {
         $res = $this->layout();
         $products = ProductReposity::getProductsByCateId($id);
+        $allProducts = ProductReposity::getAllProduct();
+        $ishot = ProductReposity::getHotProducts();
+        $issale = ProductReposity::getSaleProducts();
+        $istui = ProductReposity::getTuiProducts();
 
-        return view('home.category.Index', compact('res', 'products'));
+
+        return view('home.category.Index', compact('res', 'products', 'allProducts', 'ishot', 'issale', 'istui'));
     }
 }

@@ -49,6 +49,33 @@ class ProductReposity
     }
 
     /**
+     * @return \Illuminate\Support\Collection
+     */
+    public static function getHotProducts()
+    {
+        return Product::where('ishot', 1)->latest()->get();
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public static function getSaleProducts()
+    {
+        return Product::where('issale', 1)->latest()->get();
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public static function getTuiProducts()
+    {
+        return Product::where('istui', 1)->latest()->get();
+    }
+
+
+
+
+    /**
      * @param $id
      * @return \Illuminate\Database\Eloquent\Model|static
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
@@ -56,6 +83,14 @@ class ProductReposity
     public static function getProductById($id)
     {
         return Product::where('productid', $id)->firstOrFail();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public static function getAllProduct()
+    {
+        return Product::latest()->paginate(1);
     }
 
     /**
