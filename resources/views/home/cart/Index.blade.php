@@ -71,9 +71,29 @@
                             </li>
                         </ul>
                         <div class="buttons-holder">
-                            <a class="le-button big" href="{{url('/cart/index')}}" >去结算</a>
-                            <a class="simple-link block" href="{{url('/')}}" >继续购物</a>
 
+                            <form id="order" action="{{url('order/add')}}" method="post">
+                                @csrf
+                            @foreach($data as $k => $product)
+                                    <input type="hidden" name="orderdetail[{{$k}}][productid]" value="{{$product->productid }}">
+                                    <input type="hidden" name="orderdetail[{{$k}}][price]" value="{{$product->price}}">
+                                    <input type="hidden" name="orderdetail[{{$k}}][productnum]" value="{{$product->productnum}}">
+                            @endforeach
+                                <button class="le-button big" type="submit" >去结算</button>
+                            </form>
+
+
+                            <a class="simple-link block" href="{{url('/')}}" >继续购物</a>
+                            @if(count($errors) > 0)
+                                <div class="alert alert-danger span10 inline-input">
+                                    <ul style="color:red; text-align: center;">
+                                        @foreach ($errors->all() as $error)
+                                            <ol style="text-align: center;">{{ $error }}</ol>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                            @endif
                         </div>
                     </div>
                 </div><!-- /.widget -->

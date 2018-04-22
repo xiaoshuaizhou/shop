@@ -11,9 +11,10 @@ class ProductController extends CommonController
      */
     public function index()
     {
-        $res = $this->layout();
+        $res = $this->getMenu();
+        $data = $this->totalPrice(\Auth::guard('web')->id());
 
-        return view('home.product.index', compact('res'));
+        return view('home.product.index', compact('res', 'data'));
     }
 
     /**
@@ -24,8 +25,9 @@ class ProductController extends CommonController
     public function detail($id)
     {
         $product = ProductReposity::getProductById($id);
-        $res = $this->layout();
+        $res = $this->getMenu();
+        $data = $this->totalPrice(\Auth::guard('web')->id());
 
-        return view('home.product.detail' , compact('res', 'product'));
+        return view('home.product.detail' , compact('res', 'product', 'data'));
     }
 }

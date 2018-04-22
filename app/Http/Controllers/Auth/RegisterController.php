@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Home\CommonController;
+use App\Reposities\Admin\CategoryReposity;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -9,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Naux\Mail\SendCloudTemplate;
 use Mail;
-class RegisterController extends Controller
+class RegisterController extends CommonController
 {
     /*
     |--------------------------------------------------------------------------
@@ -39,6 +41,19 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $data = $this->totalPrice(\Auth::guard('web')->id());
+        $res = CategoryReposity::getMenu();
+
+        return view('auth.register' , compact('data', 'res'));
     }
 
     /**

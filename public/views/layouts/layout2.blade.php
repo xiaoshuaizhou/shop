@@ -34,7 +34,7 @@
     <!-- Demo Purpose Only. Should be removed in production : END -->
 
     <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+    {{--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>--}}
 
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">

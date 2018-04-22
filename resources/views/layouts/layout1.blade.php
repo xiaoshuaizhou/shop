@@ -217,7 +217,7 @@
                     </form>
                 </div><!-- /.search-area -->
                 <!-- ============================================================= SEARCH AREA : END ============================================================= -->		</div><!-- /.top-search-holder -->
-
+            @if(Auth::check())
             <div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
                 <div class="top-cart-row-container">
                     <div class="wishlist-compare-holder">
@@ -234,92 +234,64 @@
 
                         <div class="basket">
 
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="{{url('cart/index')}}">
                                 <div class="basket-item-count">
-                                    <span class="count">3</span>
+                                    <span class="count">{{ $data->sum('productnum') }}</span>
                                     <img src="/assets/images/icon-cart.png" alt="" />
                                 </div>
 
                                 <div class="total-price-basket">
                                     <span class="lbl">购物车:</span>
                                     <span class="total-price">
-                        <span class="sign">$</span><span class="value">3219,00</span>
-                    </span>
+                                        <span class="sign">￥</span>
+                                        <span class="value">{{
+                                        $data->map(function ($product){
+                                            return ($product->price * $product->productnum);
+                                        })->sum()
+                                         }}</span>
+                                    </span>
                                 </div>
                             </a>
 
                             <ul class="dropdown-menu">
+                                @foreach($data as $cart)
                                 <li>
                                     <div class="basket-item">
                                         <div class="row">
                                             <div class="col-xs-4 col-sm-4 no-margin text-center">
                                                 <div class="thumb">
-                                                    <img alt="" src="/assets/images/products/product-small-01.jpg" />
+                                                    <img alt="" src="{{$cart->product->cover}}" />
                                                 </div>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 no-margin">
-                                                <div class="title">Blueberry</div>
-                                                <div class="price">$270.00</div>
+                                                <div class="title">{{$cart->product->title}}</div>
+                                                <div class="price">{{$cart->price}}</div>
                                             </div>
                                         </div>
-                                        <a class="close-btn" href="#"></a>
+                                        <a class="close-btn" href="{{url('cart/del', ['cartid' => $cart->cartid])}}"></a>
+
                                     </div>
                                 </li>
-
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <img alt="" src="/assets/images/products/product-small-01.jpg" />
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8 no-margin">
-                                                <div class="title">Blueberry</div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <img alt="" src="/assets/images/products/product-small-01.jpg" />
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8 no-margin">
-                                                <div class="title">Blueberry</div>
-                                                <div class="price">$270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
+                                @endforeach
 
                                 <li class="checkout">
                                     <div class="basket-item">
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-6">
-                                                <a href="cart.html" class="le-button inverse">View cart</a>
+                                                <a href="{{url('cart/index')}}" class="le-button inverse">查看购物车</a>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <a href="checkout.html" class="le-button">Checkout</a>
+                                                <a href="checkout.html" class="le-button">立即购买</a>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-
                             </ul>
-                        </div><!-- /.basket -->
-                    </div><!-- /.top-cart-holder -->
-                </div><!-- /.top-cart-row-container -->
+                    </div><!-- /.basket -->
+                </div><!-- /.top-cart-holder -->
+            </div><!-- /.top-cart-row-container -->
+            @endif
                 <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->		</div><!-- /.top-cart-row -->
-
         </div><!-- /.container -->
     </header>
 
