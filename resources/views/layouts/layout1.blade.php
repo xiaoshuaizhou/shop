@@ -744,10 +744,55 @@
     $(window).bind("load", function() {
         $('.show-theme-options').delay(2000).trigger('click');
     });
+    $("#createlink").click(function(){
+        $(".billing-address").slideDown();
+    });
+
+    $(".minus").click(function(){
+        var cartid = cartid = $("input[name=productnum]").attr('id');
+        var num = parseInt($("input[name=productnum]").val()) - 1;
+        if (parseInt($("input[name=productnum]").val()) <= 1) {
+            var num = 1;
+        }
+        var total = parseFloat($(".value.pull-right span").html());
+        var price = parseFloat($(".price span").html());
+        changeNum(cartid, num);
+        var p = total - price;
+        if (p < 0) {
+            var p = "0";
+        }
+        $(".value.pull-right span").html(p + "");
+        $(".value.pull-right.ordertotal span").html(p + "");
+    });
+    $(".plus").click(function(){
+        var cartid = $("input[name=productnum]").attr('id');
+        var num = parseInt($("input[name=productnum]").val()) + 1;
+        var total = parseFloat($(".value.pull-right span").html());
+        var price = parseFloat($(".price span").html());
+        changeNum(cartid, num);
+        var p = total + price;
+        $(".value.pull-right span").html(p + "");
+        $(".value.pull-right.ordertotal span").html(p + "");
+    });
+    function changeNum(cartid, num)
+    {
+        $.get('{{url('cart/changecount')}}', {'productnum':num, 'cartid':cartid}, function(data){
+            location.reload();
+        });
+    }
+    var total = parseFloat($("#total span").html());
+    $(".le-radio.express").click(function(){
+        var ototal = parseFloat($(this).attr('data')) + total;
+        $("#ototal span").html(ototal);
+    });
+    $("input.address").click(function(){
+        var addressid = $(this).val();
+        $("input[name=addressid]").val(addressid);
+    });
 </script>
 <!-- For demo purposes – can be removed on production : End -->
 
-<script src="http://w.sharethis.com/button/buttons.js"></script>
+<script src="/js/button.js"></script>
 
 </body>
 </html>

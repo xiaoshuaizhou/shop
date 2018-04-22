@@ -29,7 +29,13 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('home.cart.index');
+        $data = $this->productReposity->getAllProductsInCart(\Auth::guard('web')->id());
+//        $totalPrice = $data->map(function ($product){
+//            return ($product->price * $product->productnum);
+//        })->sum();
+//        dd($totalPrice);
+
+        return view('home.cart.index', compact('data'));
     }
     /**
      * @param Request $request
@@ -60,5 +66,29 @@ class CartController extends Controller
         }else{
             return redirect()->withErrors('加入购物车失败');
         }
+    }
+
+    /**
+     * @param Request $request
+     * @return bool
+     */
+    public function changecount(Request $request)
+    {
+        $cartid = $request->get('cartid');
+        $productnum = $request->get('productnum');
+
+        return $this->productReposity->changeProductCount($cartid, $productnum);
+    }
+
+    /**
+     * @param $cartid
+     * @return bool|null
+     * @throws \Exception
+     */
+    public function destroy($cartid)
+    {
+        $this->productReposity->destroy($cartid);
+
+        return redirect()->back();
     }
 }
