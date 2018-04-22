@@ -15,6 +15,8 @@ Route::get('/', 'Home\IndexController@index');
 Route::get('/product/index', 'Home\ProductController@index');
 Route::get('/product/detail/{id}', 'Home\ProductController@detail');
 Route::get('/cart/index', 'Home\CartController@index');
+Route::any('/cart/add/{id?}', 'Home\CartController@add');
+
 Route::get('/category/index/{id}', 'Home\CategoryController@index');
 Route::get('/order/index', 'Home\OrderController@index');
 Route::get('/order/check', 'Home\OrderController@check');

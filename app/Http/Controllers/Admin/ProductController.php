@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Admin\Product;
-use App\Reposities\ProductReposity;
+use App\Reposities\Admin\ProductReposity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reposities\Admin\CategoryReposity;

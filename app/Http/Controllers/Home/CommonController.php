@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Admin\Category;
 use App\Models\Admin\Product;
 use App\Reposities\Admin\CategoryReposity;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class CommonController extends Controller
      */
     public function getMenu()
     {
-        return $this->categoryReposity->getMenu();
+        return CategoryReposity::getMenu();
     }
 
     /**

@@ -25,7 +25,7 @@
 <body>
 
 <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/login') }}">
-    {{ csrf_field() }}
+    @csrf
 <div class="row-fluid login-wrapper">
     <a class="brand" href="{{url('admin/')}}"></a>
     <div class="span4 box">
@@ -35,7 +35,7 @@
                     <div class="card-header">{{ __('') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ url('/admin/login') }}">
                             @csrf
 
                             <div class="span12">

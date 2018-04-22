@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">加入购物车</a>
+                                        <a href="{{url('cart/add', ['productid' => $re->productid])}}" class="le-button">加入购物车</a>
                                     </div>
                                     <div class="wish-compare">
                                         <a class="btn-add-to-wishlist" href="#">加入心愿列表</a>
@@ -217,7 +217,7 @@
                                                 </div>
                                                 <div class="hover-area">
                                                     <div class="add-cart-button">
-                                                        <a href="single-product.html" class="le-button">加入购物车</a>
+                                                        <a href="{{url('cart/add', ['id' => $pro->productid])}}" class="le-button">加入购物车</a>
                                                     </div>
                                                     <div class="wish-compare">
                                                         <a class="btn-add-to-wishlist" href="#">加入心愿单</a>

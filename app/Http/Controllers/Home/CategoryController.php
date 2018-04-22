@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Reposities\Admin\CategoryReposity;
-use App\Reposities\ProductReposity;
+use App\Reposities\Admin\ProductReposity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

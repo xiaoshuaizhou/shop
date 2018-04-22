@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Reposities;
+namespace App\Reposities\Admin;
 
 
 use App\Models\Admin\Product;

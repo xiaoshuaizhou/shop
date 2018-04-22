@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Reposities\Admin\CategoryReposity;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -40,6 +41,20 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        $res = CategoryReposity::getMenu();
+
+        return view('auth.login', compact('res'));
+    }
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\Response|void
+     * @throws ValidationException
+     */
     public function login(Request $request)
     {
         $this->validateLogin($request);

@@ -11,18 +11,15 @@
                                 <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
+                        @foreach(json_decode($product->pics, true) as $pic)
 
                         <div class="single-product-gallery-item" id="slide2">
                             <a data-rel="prettyphoto" href="#">
-                                <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
+                                <img class="img-responsive" alt="" src="{{$pic}}" data-echo="{{$pic}}" />
                             </a>
                         </div><!-- /.single-product-gallery-item -->
+                        @endforeach
 
-                        <div class="single-product-gallery-item" id="slide3">
-                            <a data-rel="prettyphoto" href="#">
-                                <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
-                            </a>
-                        </div><!-- /.single-product-gallery-item -->
                     </div><!-- /.single-product-slider -->
 
 
@@ -70,17 +67,39 @@
                         <div class="price-prev" style=" text-decoration: line-through;">原价： ￥ {{$product->price}}元</div>
                     </div>
 
-                    <div class="qnt-holder">
-                        <div class="le-quantity">
-                            <form>
-                                <a class="minus" href="#reduce"></a>
-                                <input name="quantity" readonly="readonly" type="text" value="1" />
-                                <a class="plus" href="#add"></a>
-                            </form>
+                    <form action="{{url('cart/add')}}" method="post">
+                        <div class="qnt-holder">
+                                <div class="le-quantity">
+                                        <a class="minus" href="#reduce"></a>
+                                        <input name="productnum"  type="text" value="1" />
+                                        <a class="plus" href="#add"></a>
+                                </div>
+                        </div><!-- /.qnt-holder -->
+                        <div class="tab-holder">
+                             <span>
+                            @csrf
+                            <input type="hidden" name="productid" value="{{$product->productid}}">
+                            <input type="hidden" name="price" value="{{$product->issale ? $product->saleprice : $product->price}}">
+                            <input type='submit' id="addto-cart" class="le-button huge" value="加入购物车">
+                            </span>
                         </div>
-                        <a id="addto-cart" href="cart.html" class="le-button huge">加入购物车</a>
-                    </div><!-- /.qnt-holder -->
+                    </form>
+
                 </div><!-- /.body -->
+
+
+
+
+
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger span10 inline-input">
+                        <ul style="color:red; text-align: center;">
+                            @foreach ($errors->all() as $error)
+                                <ol style="text-align: center;">{{ $error }}</ol>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
             </div><!-- /.body-holder -->
         </div><!-- /.container -->
