@@ -19,10 +19,15 @@ class OrderResposity
      */
     public $order;
 
+    /**
+     * @var \App\Models\Home\OrderDetail
+     */
     public $orderDetail;
+
     /**
      * OrderResposity constructor.
-     * @param $order
+     * @param \App\Models\Home\Order $order
+     * @param \App\Models\Home\OrderDetail $orderDetail
      */
     public function __construct(
         Order $order,

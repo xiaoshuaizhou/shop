@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\OrderRequest;
-use App\Models\Home\Order;
 use App\Reposities\Home\OrderResposity;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class OrderController extends CommonController
 {
@@ -21,7 +18,11 @@ class OrderController extends CommonController
         $this->middleware('auth');
         $this->orderReposity = $orderResposity;
     }
-    //订单列表
+
+    /**
+     * 订单列表
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $res = $this->getMenu();
@@ -30,15 +31,20 @@ class OrderController extends CommonController
         return view('home.order.index' , compact('res', 'data'));
     }
 
-    //收银台
+    /**
+     * 收银台
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function check()
     {
         $res = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
+
         return view('home.order.check' , compact('res', 'data'));
     }
 
     /**
+     * 新增订单
      * @param \App\Http\Requests\OrderRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \Exception
@@ -49,6 +55,7 @@ class OrderController extends CommonController
         if ($res){
             return redirect('/order/check');
         }else{
+
             return redirect()->back();
         }
     }

@@ -8,49 +8,46 @@
 
                 <div class="billing-address">
                     <h2 class="border h1">填写地址信息</h2>
-                    <form>
+                    <form action="{{}}" method="post">
+                        @csrf
                         <div class="row field-row">
                             <div class="col-xs-12 col-sm-6">
                                 <label>姓*</label>
-                                <input class="le-input" >
+                                <input class="le-input" name="firstname" >
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <label>名*</label>
-                                <input class="le-input" >
+                                <input class="le-input" name="lastname">
                             </div>
                         </div><!-- /.field-row -->
 
                         <div class="row field-row">
                             <div class="col-xs-12">
                                 <label>公司名称</label>
-                                <input class="le-input" >
+                                <input class="le-input" name="companyname">
                             </div>
                         </div><!-- /.field-row -->
 
                         <div class="row field-row">
-                            <div class="col-xs-12 col-sm-6">
+                            <div class="col-xs-12">
                                 <label>详细地址*</label>
-                                <input class="le-input" data-placeholder="请输入详细地址。。。" >
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <label>&nbsp;</label>
-                                <input class="le-input" data-placeholder="town" >
+                                <input class="le-input" name="detailaddress">
                             </div>
                         </div><!-- /.field-row -->
 
                         <div class="row field-row">
                             <div class="col-xs-12 col-sm-4">
                                 <label>邮政编码*</label>
-                                <input class="le-input"  >
+                                <input class="le-input"  name="postcode">
                             </div>
                             <div class="col-xs-12 col-sm-4">
                                 <label>邮箱*</label>
-                                <input class="le-input" >
+                                <input class="le-input" name="email" >
                             </div>
 
                             <div class="col-xs-12 col-sm-4">
                                 <label>手机号*</label>
-                                <input class="le-input" >
+                                <input class="le-input" name="phone">
                             </div>
                         </div><!-- /.field-row -->
 

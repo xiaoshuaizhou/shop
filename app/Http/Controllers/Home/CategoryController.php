@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Reposities\Admin\CategoryReposity;
 use App\Reposities\Admin\ProductReposity;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
+/**
+ * Class CategoryController
+ * @package App\Http\Controllers\Home
+ */
 class CategoryController extends CommonController
 {
 

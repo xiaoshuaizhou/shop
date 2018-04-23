@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Requests\CartRequest;
+use App\Http\Controllers\Controller;
 use App\Reposities\Home\ProductReposity;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {

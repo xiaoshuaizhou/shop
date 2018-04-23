@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Models\Admin\Category;
-use App\Models\Admin\Product;
+use App\Http\Controllers\Controller;
 use App\Models\Home\Cart;
 use App\Reposities\Admin\CategoryReposity;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CommonController extends Controller
 {
