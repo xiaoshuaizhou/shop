@@ -15,14 +15,14 @@ class CreateTableAddress extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->increments('addressid');
-            $table->string('firstname', 32);
-            $table->string('lastname', 32);
-            $table->string('company', 100);
+            $table->string('firstname', 32)->default('');
+            $table->string('lastname', 32)->default('');
+            $table->string('company', 100)->default('');
             $table->text('address');
-            $table->char('postcode', 6);
-            $table->string('email', 100);
+            $table->char('postcode', 6)->default('');
+            $table->string('email', 100)->default('');
             $table->string('telephone', 20);
-            $table->integer('userid');
+            $table->integer('userid')->default(0);
             $table->timestamps();
         });
     }

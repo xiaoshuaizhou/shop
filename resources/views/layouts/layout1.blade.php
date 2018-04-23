@@ -57,7 +57,7 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="{{url('/')}}">首页</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-colors">换肤</a>
 

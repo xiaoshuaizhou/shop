@@ -3,7 +3,10 @@
 namespace App\Reposities\Home;
 
 
+use App\Models\Admin\Product;
+use App\Models\Home\Cart;
 use App\Models\Home\Order;
+use App\Models\Home\OrderDetail;
 
 /**
  * Class OrderResposity
@@ -16,31 +19,53 @@ class OrderResposity
      */
     public $order;
 
+    public $orderDetail;
     /**
      * OrderResposity constructor.
      * @param $order
      */
-    public function __construct(Order $order)
-    {
+    public function __construct(
+        Order $order,
+        OrderDetail $orderDetail
+    ){
         $this->order = $order;
+        $this->orderDetail = $orderDetail;
     }
 
     /**
+     * 增加order和orderdetail表和address表
      * @param $data
-     * @return $this|\Illuminate\Database\Eloquent\Model
+     * @return bool
      * @throws \Exception
-     * @throws \Throwable
      */
     public function create($data)
     {
-        \DB::transaction(function () {
-//            $this->orderReposity->create([
-//                'userid' => \Auth::id(),
-//                'status' => Order::CREATEORDER,
-//
-//            ]);
-        });
+        \DB::beginTransaction();
+        try{
+            $order = $this->order->create([
+                'userid' => \Auth::id(),
+                'status' => Order::CREATEORDER,
+            ]);
+            $orderid = $order->id;
+            foreach ($data['orderdetail'] as $product){
+                $product['orderid'] = $orderid;
+                $orderdetail = $this->orderDetail->create($product);
+                if (!$orderdetail){
+                    throw new \Exception();
+                }
+                //清空购物车
+                Cart::where('productid', $product['productid'])->delete();
 
-        return $this->order->create($data);
+                $productnum = Product::where('productid', $product['productid'])->first(['num']);
+                //修改库存
+                Product::where('productid', $product['productid'])->update(['num' => $productnum->num - $product['productnum']]);
+            }
+            \DB::commit();
+            return true;
+        }catch(\Exception $exception){
+            \DB::rollBack();
+            return false;
+        }
+
     }
 }

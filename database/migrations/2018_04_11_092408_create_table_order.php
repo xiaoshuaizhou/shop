@@ -15,13 +15,13 @@ class CreateTableOrder extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->increments('orderid');
-            $table->integer('userid');
-            $table->integer('addressid');
-            $table->decimal('amount', 10, 2);
-            $table->integer('status');
-            $table->integer('expressid');
-            $table->string('expressno', 100);
-            $table->string('tradeno', 100);
+            $table->integer('userid')->default(0);
+            $table->integer('addressid')->default(0);
+            $table->decimal('amount', 10, 2)->default(0.0);
+            $table->integer('status')->default(0);
+            $table->integer('expressid')->default(0);
+            $table->string('expressno', 100)->default('');
+            $table->string('tradeno', 100)->default('');
             $table->text('tradeext');
             $table->index('userid');
             $table->index('addressid');

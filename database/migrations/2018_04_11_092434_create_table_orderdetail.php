@@ -15,11 +15,11 @@ class CreateTableOrderdetail extends Migration
     {
         Schema::create('orderdetail', function (Blueprint $table) {
             $table->increments('detailid');
-            $table->integer('productid');
+            $table->integer('productid')->default(0);
             $table->decimal('price', 10 ,2);
-            $table->integer('orderid');
-            $table->integer('productnum');
-            $table->index('productid');
+            $table->integer('orderid')->default(0);
+            $table->integer('productnum')->default(0);
+            $table->index('productid')->default(0);
             $table->index('orderid');
             $table->timestamps();
         });

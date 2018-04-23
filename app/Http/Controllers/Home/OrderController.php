@@ -33,17 +33,23 @@ class OrderController extends CommonController
     //收银台
     public function check()
     {
-        return view('home.order.check');
+        $res = $this->getMenu();
+        $data = $this->totalPrice(\Auth::guard('web')->id());
+        return view('home.order.check' , compact('res', 'data'));
     }
 
     /**
-     * @param OrderRequest $request
+     * @param \App\Http\Requests\OrderRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      * @throws \Exception
-     * @throws \Throwable
      */
     public function add(OrderRequest $request)
     {
-       $this->orderReposity->create($request->all());
-        dd($request->all());
+       $res = $this->orderReposity->create($request->all());
+        if ($res){
+            return redirect('/order/check');
+        }else{
+            return redirect()->back();
+        }
     }
 }
