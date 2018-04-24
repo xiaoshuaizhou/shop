@@ -60,16 +60,15 @@ class OrderResposity
                 }
                 //清空购物车
                 Cart::where('productid', $product['productid'])->delete();
-
                 $productnum = Product::where('productid', $product['productid'])->first(['num']);
                 //修改库存
                 Product::where('productid', $product['productid'])->update(['num' => $productnum->num - $product['productnum']]);
             }
             \DB::commit();
-            return true;
+            return ['status' => true, 'orderid' => $orderid];
         }catch(\Exception $exception){
             \DB::rollBack();
-            return false;
+            return ['status' => false, 'orderid' => 0];
         }
 
     }

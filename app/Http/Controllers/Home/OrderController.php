@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Requests\OrderRequest;
+use App\Models\Admin\Product;
+use App\Models\Home\Address;
+use App\Models\Home\Express;
+use App\Models\Home\Order;
+use App\Models\Home\OrderDetail;
 use App\Reposities\Home\OrderResposity;
+use Illuminate\Http\Request;
 
 class OrderController extends CommonController
 {
@@ -35,12 +41,34 @@ class OrderController extends CommonController
      * 收银台
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function check()
+    public function check(Request $request)
     {
+        $orderid = $request->get('orderid');
+        $order = Order::where('orderid', $orderid)->first();
+        if ($order->status != Order::CREATEORDER && $order->status != Order::CHECKORDER){
+            return redirect('order/index');
+        }
+        $userid = \Auth::guard('web')->id();
+        $address = Address::where('userid', $userid)->get();
+        $orderdetails =  OrderDetail::where('orderid', $orderid)->get();
+
+        $info = [];
+        foreach ($orderdetails as $detail) {
+            $model = Product::where('productid', $detail['productid'])->first();
+            $detail['title'] = $model->title;
+            $detail['cover'] = $model->cover;
+            $info[] = $detail;
+        }
+
+        $express = Express::all()->toArray();
         $res = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
+        $totalPrice = 0;
+        foreach ($info as $item){
+            $totalPrice += $item->price * $item->productnum;
+        }
 
-        return view('home.order.check' , compact('res', 'data'));
+        return view('home.order.check' , compact('res', 'data', 'info',  'express', 'address', 'totalPrice'));
     }
 
     /**
@@ -52,11 +80,11 @@ class OrderController extends CommonController
     public function add(OrderRequest $request)
     {
        $res = $this->orderReposity->create($request->all());
-        if ($res){
-            return redirect('/order/check');
-        }else{
 
-            return redirect()->back();
+        if ($res['status']){
+            return \Redirect::action('Home\OrderController@check',['orderid' => $res['orderid']]);
+        }else{
+            return redirect()->back()->withErrors('添加订单错误');
         }
     }
 }
