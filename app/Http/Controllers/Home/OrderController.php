@@ -87,4 +87,11 @@ class OrderController extends CommonController
             return redirect()->back()->withErrors('添加订单错误');
         }
     }
+
+    public function confirm(Request $request)
+    {
+        dd($request->all());
+        //addressid ,expressid, status, amount
+
+    }
 }

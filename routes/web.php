@@ -24,6 +24,8 @@ Route::get('address/edit/{id}', 'Home\AddressController@edit');
 Route::post('address/update', 'Home\AddressController@update');
 Route::get('address/del/{id}', 'Home\AddressController@del');
 
+Route::post('/order/confirm', 'Home\OrderController@confirm');
+
 Route::get('/category/index/{id}', 'Home\CategoryController@index');
 Route::get('/order/index', 'Home\OrderController@index');
 Route::any('/order/check', 'Home\OrderController@check');

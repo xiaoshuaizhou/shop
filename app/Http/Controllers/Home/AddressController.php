@@ -48,8 +48,22 @@ class AddressController extends CommonController
         return redirect()->back();
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function del($id)
     {
 
+        $address = Address::where('addressid', $id)->first();
+
+        if ($address->userid != \Auth::guard('web')->id()){
+            return redirect()->withErrors('删除失败，不能删除其他地址信息');
+        }
+
+        $address->where('addressid', $id)->delete();
+
+        return redirect()->back();
     }
 }
