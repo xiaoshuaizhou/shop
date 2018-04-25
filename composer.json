@@ -16,6 +16,7 @@
         "laravel/tinker": "^1.0",
         "naux/sendcloud": "^1.1",
         "overtrue/laravel-filesystem-qiniu": "^1.0",
+        "riverslei/payment": "*",
         "yansongda/laravel-pay": "^2.0"
     },
     "require-dev": {
@@ -70,6 +71,6 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
