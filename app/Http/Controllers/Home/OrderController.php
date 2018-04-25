@@ -39,7 +39,8 @@ class OrderController extends CommonController
 
     /**
      * 收银台
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function check(Request $request)
     {
@@ -88,10 +89,24 @@ class OrderController extends CommonController
         }
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function confirm(Request $request)
     {
-        dd($request->all());
-        //addressid ,expressid, status, amount
+        $res = $this->orderReposity->updateOrder($request->all());
 
+        return \Redirect::route('orderpay',['orderid' => $res['orderid'], 'method' => $request->get('paymethod')]);
+    }
+
+    /**
+     * 支付
+     * @param \Illuminate\Http\Request $request
+     */
+    public function pay(Request $request)
+    {
+        dd($request->all());
     }
 }

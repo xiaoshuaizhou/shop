@@ -120,10 +120,10 @@
                             @endforeach
                     </section><!-- /#shipping-address -->
 
-
                     <section id="your-order">
                         <h2 class="border h1">订单列表</h2>
                             @foreach($info as $item)
+                            <input type="hidden" name="orderid" value="{{$item->orderid}}">
                                 <div class="row no-margin order-item">
                                     <div class="col-xs-12 col-sm-1 no-margin">
                                         <a href="#" class="qty">{{$item->productnum}} x</a>
@@ -155,7 +155,7 @@
                                         <div class="value">
                                             <div class="radio-group">
                                                 @foreach($express as $keys => $exp)
-                                                    <input id="express" class="le-radio express" type="radio" checked="checked"  name="expressid" value="{{$exp['id']}}">
+                                                    <input id="express" class="le-radio express" type="radio"  name="expressid" value="{{$exp['id']}}">
                                                     {{$exp['expressname']}}
                                                     <div class="radio-label bold">
                                                         <span class="bold">
@@ -172,12 +172,8 @@
                                     <li>
                                         <label>订单总计</label>
                                         <div class="value" >
-                                            @if($keys == 1)
                                             {{$totalPrice+20}}
-                                                @else
-                                                {{$totalPrice+10}}
-                                            @endif
-                                                &nbsp;元
+                                            &nbsp;元
                                         </div>
                                     </li>
                                 </ul><!-- /.tabled-data -->
@@ -192,7 +188,10 @@
                             <input class="le-radio" type="radio" name="paymethod" value="alipay" checked>
                             <div class="radio-label bold ">支付宝支付</div>
                         </div><!-- /.payment-method-option -->
-
+                        <div class="payment-method-option">
+                            <input class="le-radio" type="radio" name="paymethod" value="wexinpay" checked>
+                            <div class="radio-label bold ">微信支付</div>
+                        </div>
                     </div><!-- /#payment-method-options -->
 
                     <div class="place-order-button">

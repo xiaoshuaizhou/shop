@@ -47,7 +47,7 @@
                         <li>
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 no-margin">
-                                    <a href="#" class="thumb-holder">
+                                    <a href="{{url('product/detail')}}/{{$item->productid}}" class="thumb-holder">
                                         <img alt="{{url('product/detail')}}/{{$item->productid}}" src="{{$item->cover}}" data-echo="{{$item->cover}}" />
                                     </a>
                                 </div>
@@ -126,7 +126,10 @@
                                 <div class="ribbon green"><span>推荐</span></div>
                                 @endif
                                 <div class="image">
-                                    <img alt="{{url('product/detail')}}/{{$re->productid}}" src="{{$re->cover}}" data-echo="{{$re->cover}}" />
+                                    <a href="{{url('product/detail')}}/{{$re->productid}}">
+                                        <img alt="{{url('product/detail')}}/{{$re->productid}}" src="{{$re->cover}}" data-echo="{{$re->cover}}" />
+                                    </a>
+
                                 </div>
                                 <div class="body">
                                     <div class="label-discount green">-50% 促销</div>
@@ -202,7 +205,10 @@
                                                     <div class="ribbon green"><span>推荐</span></div>
                                                 @endif
                                                 <div class="image">
-                                                    <img alt="" src="{{$pro->cover}}" data-echo="{{$pro->cover}}" />
+                                                    <a href="{{url('product/detail')}}/{{$pro->productid}}">
+                                                        <img alt="" src="{{$pro->cover}}" data-echo="{{$pro->cover}}" />
+                                                    </a>
+
                                                 </div>
                                                 <div class="body">
                                                     <div class="label-discount green">-50% sale</div>
