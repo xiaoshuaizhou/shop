@@ -94,7 +94,6 @@ class OrderResposity
         if ($expressPrice->expressprice < 0.0){
             throw new \Exception();
             return redirect('/');
-
         }
         $price = $price + $expressPrice->expressprice;
         $res = Order::where('orderid', $data['orderid'])

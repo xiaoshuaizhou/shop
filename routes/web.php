@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/pay', 'Home\AliPayController@index');
+
 Route::get('/', 'Home\IndexController@index');
 Route::get('/product/index', 'Home\ProductController@index');
 Route::get('/product/detail/{id}', 'Home\ProductController@detail');

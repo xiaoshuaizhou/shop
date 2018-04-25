@@ -8,6 +8,7 @@ use App\Models\Home\Address;
 use App\Models\Home\Express;
 use App\Models\Home\Order;
 use App\Models\Home\OrderDetail;
+use App\Models\Home\Pay;
 use App\Reposities\Home\OrderResposity;
 use Illuminate\Http\Request;
 
@@ -107,6 +108,17 @@ class OrderController extends CommonController
      */
     public function pay(Request $request)
     {
-        dd($request->all());
+        $orderid = $request->get('orderid');
+        $paymethod = $request->get('method');
+        if (empty($orderid)|| empty($paymethod)){
+            throw new \Exception();
+        }
+        if ($paymethod = 'alipay'){
+            return Pay::Alipay($orderid);
+        }
+//        if ($paymethod = 'weixinpay'){
+//
+//        }
+
     }
 }
