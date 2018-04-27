@@ -108,17 +108,19 @@ class OrderController extends CommonController
      */
     public function pay(Request $request)
     {
-        $orderid = $request->get('orderid');
-        $paymethod = $request->get('method');
-        if (empty($orderid)|| empty($paymethod)){
-            throw new \Exception();
-        }
-        if ($paymethod = 'alipay'){
-            return Pay::Alipay($orderid);
-        }
-//        if ($paymethod = 'weixinpay'){
-//
-//        }
 
+            $orderid = $request->get('orderid');
+            $paymethod = $request->get('method');
+            echo $paymethod;
+            if (empty($orderid) || empty($paymethod)){
+                throw new \Exception();
+            }
+
+            if ($paymethod == 'alipay'){
+                return Pay::Alipay($orderid);
+            }
+            if ($paymethod == 'wexinpay'){
+                return Pay::wexinpay($orderid);
+            }
     }
 }

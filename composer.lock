@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2d554b37647948f58e61d3864b6e27e",
+    "content-hash": "1e5f017c1d190c86390d5a0f064d2e13",
     "packages": [
         {
             "name": "darryldecode/cart",
@@ -3387,6 +3387,39 @@
                 "support"
             ],
             "time": "2018-03-22T12:33:46+00:00"
+        },
+        {
+            "name": "zhouxiaoshuai/hasher",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xiaoshuaizhou/laravel-package-demo.git",
+                "reference": "f8d7366281b6c23d9d65557f39e0586ecbee10f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/xiaoshuaizhou/laravel-package-demo/f8d7366281b6c23d9d65557f39e0586ecbee10f8.zip",
+                "reference": "f8d7366281b6c23d9d65557f39e0586ecbee10f8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zhouxiaoshuai\\Hasher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zhouxiaoshuai",
+                    "email": "zhouxiaoshuai3@gmail.com"
+                }
+            ],
+            "description": "Md5 support in Laravel",
+            "time": "2018-03-24T09:46:44+00:00"
         }
     ],
     "packages-dev": [

@@ -122,9 +122,9 @@
             <div class="tab-holder">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" >
-                    <li class="active"><a href="#featured" data-toggle="tab">featured</a></li>
-                    <li><a href="#new-arrivals" data-toggle="tab">new arrivals</a></li>
-                    <li><a href="#top-sales" data-toggle="tab">top sales</a></li>
+                    <li class="active"><a href="#featured" data-toggle="tab">全部商品</a></li>
+                    <li><a href="#new-arrivals" data-toggle="tab">最新上架</a></li>
+                    <li><a href="#top-sales" data-toggle="tab">热卖榜</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -218,8 +218,8 @@
                             </div>
                             <div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
                                 <div class="product-item">
-                                    <div class="ribbon red"><span>sale</span></div>
-                                    <div class="ribbon green"><span>bestseller</span></div>
+                                    <div class="ribbon red"><span>推荐</span></div>
+                                    <div class="ribbon green"><span>畅销</span></div>
                                     <div class="image">
                                         <img alt="" src="/assets/images/blank.gif" data-echo="/assets/images/products/product-04.jpg" />
                                     </div>
@@ -250,7 +250,7 @@
                         <div class="loadmore-holder text-center">
                             <a class="btn-loadmore" href="#">
                                 <i class="fa fa-plus"></i>
-                                load more products</a>
+                                加载更多</a>
                         </div>
 
                     </div>
@@ -522,7 +522,7 @@
     <!-- ========================================= BEST SELLERS ========================================= -->
     <section id="bestsellers" class="color-bg wow fadeInUp">
         <div class="container">
-            <h1 class="section-title">Best Sellers</h1>
+            <h1 class="section-title">畅销</h1>
 
             <div class="product-grid-holder medium">
                 <div class="col-xs-12 col-md-7 no-margin">
@@ -751,7 +751,7 @@
             <div class="carousel-holder hover">
 
                 <div class="title-nav">
-                    <h2 class="h1">Recently Viewed</h2>
+                    <h2 class="h1">浏览历史</h2>
                     <div class="nav-holder">
                         <a href="#prev" data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
                         <a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
@@ -986,7 +986,7 @@
             <div class="carousel-holder" >
 
                 <div class="title-nav">
-                    <h1>Top Brands</h1>
+                    <h1>品牌</h1>
                     <div class="nav-holder">
                         <a href="#prev" data-target="#owl-brands" class="slider-prev btn-prev fa fa-angle-left"></a>
                         <a href="#next" data-target="#owl-brands" class="slider-next btn-next fa fa-angle-right"></a>

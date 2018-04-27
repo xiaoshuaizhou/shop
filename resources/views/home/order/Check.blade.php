@@ -155,11 +155,9 @@
                                         <div class="value">
                                             <div class="radio-group">
                                                 @foreach($express as $keys => $exp)
-                                                    <input id="express" class="le-radio express" type="radio"  name="expressid" value="{{$exp['id']}}">
-                                                    {{$exp['expressname']}}
+                                                    <input id="express" class="le-radio express" type="radio" checked  name="expressid" value="{{$exp['id']}}">{{$exp['expressname']}}
                                                     <div class="radio-label bold">
-                                                        <span class="bold">
-                                                     ￥{{$exp['expressprice']}}</span>
+                                                        <span class="bold">￥{{$exp['expressprice']}}</span>
                                                     </div>
                                                     <br>
                                                 @endforeach
@@ -172,7 +170,7 @@
                                     <li>
                                         <label>订单总计</label>
                                         <div class="value" >
-                                            {{$totalPrice+20}}
+                                            {{$totalPrice}}
                                             &nbsp;元
                                         </div>
                                     </li>
@@ -185,11 +183,11 @@
                     <div id="payment-method-options">
 
                         <div class="payment-method-option">
-                            <input class="le-radio" type="radio" name="paymethod" value="alipay" checked>
+                            <input class="le-radio" type="radio" name="paymethod" value="alipay">
                             <div class="radio-label bold ">支付宝支付</div>
                         </div><!-- /.payment-method-option -->
                         <div class="payment-method-option">
-                            <input class="le-radio" type="radio" name="paymethod" value="wexinpay" checked>
+                            <input class="le-radio" type="radio" name="paymethod" value="wexinpay" >
                             <div class="radio-label bold ">微信支付</div>
                         </div>
                     </div><!-- /#payment-method-options -->

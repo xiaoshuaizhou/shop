@@ -8,7 +8,8 @@
                     <div id="owl-single-product">
                         <div class="single-product-gallery-item" id="slide1">
                             <a data-rel="prettyphoto" href="#">
-                                <img class="img-responsive" alt="" src="{{$product->cover}}" data-echo="{{$product->cover}}" />
+                                <img class="img-responsive" alt="" src="{{$product->cover}}?imageView2/1/w/486/h/332/format/jpg/q/75|imageslim"
+                                     data-echo="{{$product->cover}}?imageView2/1/w/486/h/332/format/jpg/q/75|imageslim"/>
                             </a>
                         </div><!-- /.single-product-gallery-item -->
                         @foreach(json_decode($product->pics, true) as $pic)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Home\CommonController;
+use App\Jobs\SendRegisterEmail;
 use App\Reposities\Admin\CategoryReposity;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -86,13 +87,14 @@ class RegisterController extends CommonController
             'token' => str_random(60),
         ]);
 
-        $this->sendVerifyEmailTo($user);
+//        $this->sendVerifyEmailTo($user);
+        $this->dispatch(new SendRegisterEmail($user));
 
         return $user;
     }
 
     /**
-     * 发送邮件
+     * 发送邮件 使用队列发送邮件
      * @param $user
      */
     private function sendVerifyEmailTo($user)

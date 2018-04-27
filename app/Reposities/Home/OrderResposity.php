@@ -51,6 +51,7 @@ class OrderResposity
             $order = $this->order->create([
                 'userid' => \Auth::id(),
                 'status' => Order::CREATEORDER,
+                'expressno' => self::makeOrderNo()
             ]);
             $orderid = $order->id;
             foreach ($data['orderdetail'] as $product){
@@ -102,9 +103,25 @@ class OrderResposity
                 'addressid' => $data['addressid'],
                 'expressid' => $data['expressid'],
                 'status' => Order::CHECKORDER,
-                'amount' => $price
+                'amount' => $price,
             ]);
 
         return ['orderid' => $data['orderid'], 'status' => $res];
+    }
+    /**
+     * 生成订单号,避免订单号重复
+     * @return string
+     */
+    public static function makeOrderNo()
+    {
+        $yCode = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+        $orderSn =
+            $yCode[intval(date('Y') - 2017)]
+            . strtoupper(dechex(date('m')))
+            . date('d')
+            . substr(time(), -5)
+            . substr(microtime(), 2, 5)
+            . sprintf('%02d', rand(0, 99));
+        return $orderSn;
     }
 }

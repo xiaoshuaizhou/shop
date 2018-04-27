@@ -36,4 +36,9 @@ class Order extends Model
         self::SENDED => '已发货',
         self::RECEIVED => '订单完成'
     ];
+
+    public function detail()
+    {
+        return $this->belongsTo('App\Models\Home\OrderDetail', 'orderid', 'orderid');
+    }
 }
