@@ -22,7 +22,7 @@ class CreateTableOrder extends Migration
             $table->integer('expressid')->default(0);
             $table->string('expressno', 100)->default('');
             $table->string('tradeno', 100)->default('');
-            $table->text('tradeext');
+            $table->text('tradeext')->nullable('');
             $table->index('userid');
             $table->index('addressid');
             $table->index('expressid');

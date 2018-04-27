@@ -19,7 +19,7 @@ class CreateTableOrderdetail extends Migration
             $table->decimal('price', 10 ,2);
             $table->integer('orderid')->default(0);
             $table->integer('productnum')->default(0);
-            $table->index('productid')->default(0);
+            $table->index('productid');
             $table->index('orderid');
             $table->timestamps();
         });

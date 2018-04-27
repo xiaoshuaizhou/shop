@@ -18,7 +18,7 @@ class CreateTableAddress extends Migration
             $table->string('firstname', 32)->default('');
             $table->string('lastname', 32)->default('');
             $table->string('company', 100)->default('');
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->char('postcode', 6)->default('');
             $table->string('email', 100)->default('');
             $table->string('telephone', 20);
