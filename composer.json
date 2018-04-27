@@ -15,7 +15,10 @@
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "naux/sendcloud": "^1.1",
-        "overtrue/laravel-filesystem-qiniu": "^1.0"
+        "overtrue/laravel-filesystem-qiniu": "^1.0",
+        "riverslei/payment": "^4.1",
+        "yansongda/laravel-pay": "^2.0",
+        "zhouxiaoshuai/hasher": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",
@@ -69,6 +72,6 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

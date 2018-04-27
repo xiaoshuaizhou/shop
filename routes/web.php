@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/pay', 'Home\AliPayController@index');
+
 Route::get('/', 'Home\IndexController@index');
 Route::get('/product/index', 'Home\ProductController@index');
 Route::get('/product/detail/{id}', 'Home\ProductController@detail');
@@ -19,11 +21,21 @@ Route::any('/cart/add/{id?}', 'Home\CartController@add');
 Route::get('cart/changecount', 'Home\CartController@changecount');
 Route::get('cart/del/{id}', 'Home\CartController@destroy');
 Route::post('order/add', 'Home\OrderController@add');
+Route::post('address/add', 'Home\AddressController@add');
+Route::get('address/edit/{id}', 'Home\AddressController@edit');
+Route::post('address/update', 'Home\AddressController@update');
+Route::get('address/del/{id}', 'Home\AddressController@del');
+
+Route::post('/order/confirm', 'Home\OrderController@confirm');
+Route::get('order/pay', 'Home\OrderController@pay')->name('orderpay');
+
+
+
 
 
 Route::get('/category/index/{id}', 'Home\CategoryController@index');
 Route::get('/order/index', 'Home\OrderController@index');
-Route::get('/order/check', 'Home\OrderController@check');
+Route::any('/order/check', 'Home\OrderController@check');
 Route::get('/email/verify/{token}', ['as' => 'email.verify', 'uses' => 'Home\EmailController@verify']);
 
 Auth::routes();

@@ -285,7 +285,17 @@
                 <li><a href="{{url('/admin/product/add')}}">添加商品</a></li>
             </ul>
         </li>
-
+        <li>
+            <a class="dropdown-toggle" href="#">
+                <i class="icon-glass"></i>
+                <span>订单管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="{{url('/admin/order/list')}}">订单列表</a></li>
+                <li><a href="{{url('/admin/order/add')}}">添加商品</a></li>
+            </ul>
+        </li>
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-edit"></i>
