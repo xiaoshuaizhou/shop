@@ -27,7 +27,7 @@ class Pay extends Model
         echo htmlspecialchars($str);
     }
 
-    /**
+    /** 如果你把目标只设定为明知自己能实现的东西，你的自我要求就太低了
      * 微信支付
      * @param $orderid
      */

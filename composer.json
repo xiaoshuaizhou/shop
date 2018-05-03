@@ -13,10 +13,12 @@
         "hesto/multi-auth": "^2.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.6.*",
+        "laravel/scout": "^4.0",
         "laravel/tinker": "^1.0",
         "naux/sendcloud": "^1.1",
         "overtrue/laravel-filesystem-qiniu": "^1.0",
         "riverslei/payment": "^4.1",
+        "tamayo/laravel-scout-elastic": "^3.0",
         "yansongda/laravel-pay": "^2.0",
         "zhouxiaoshuai/hasher": "^1.0"
     },

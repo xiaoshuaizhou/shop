@@ -153,7 +153,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        ScoutEngines\Elasticsearch\ElasticsearchProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
         /*
          * Application Service Providers...
          */
