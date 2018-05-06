@@ -35,10 +35,6 @@ Route::get('address/del/{id}', 'Home\AddressController@del');
 Route::post('/order/confirm', 'Home\OrderController@confirm');
 Route::get('order/pay', 'Home\OrderController@pay')->name('orderpay');
 
-
-
-
-
 Route::get('/category/index/{id}', 'Home\CategoryController@index');
 Route::get('/order/index', 'Home\OrderController@index');
 Route::any('/order/check', 'Home\OrderController@check');

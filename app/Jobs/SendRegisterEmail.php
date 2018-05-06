@@ -33,16 +33,17 @@ class SendRegisterEmail implements ShouldQueue
      */
     public function handle()
     {
+        $user = $this->user;
         $data = [
-            'url' => route('email.verify', ['token' => $user->token]),
-            'name' => $user->name
+            'url' => route('email.verify', ['token' => $this->user->token]),
+            'name' => $this->user->name
         ];
         $template = new SendCloudTemplate('zhihu_app_register', $data);
 
         Mail::raw($template, function ($message) use ($user) {
             $message->from(env('SEND_EMAIL_FROM'), env('APP_NAME'));
 
-            $message->to($user->email);
+            $message->to($this->user->email);
         });
     }
 }

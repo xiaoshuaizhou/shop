@@ -87,28 +87,11 @@ class RegisterController extends CommonController
             'token' => str_random(60),
         ]);
 
-//        $this->sendVerifyEmailTo($user);
         $this->dispatch(new SendRegisterEmail($user));
+        dump($user);
+        flash('邮件发送成功', 'success');
 
         return $user;
     }
 
-    /**
-     * 发送邮件 使用队列发送邮件
-     * @param $user
-     */
-    private function sendVerifyEmailTo($user)
-    {
-        $data = [
-            'url' => route('email.verify', ['token' => $user->token]),
-            'name' => $user->name
-        ];
-        $template = new SendCloudTemplate('zhihu_app_register', $data);
-
-        Mail::raw($template, function ($message) use ($user) {
-            $message->from(env('SEND_EMAIL_FROM'), env('APP_NAME'));
-
-            $message->to($user->email);
-        });
-    }
 }
