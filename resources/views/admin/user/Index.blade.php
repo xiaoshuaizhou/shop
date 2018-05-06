@@ -1,7 +1,4 @@
 @include('./../../layouts/sidebar');
-
-
-
 <!-- main container -->
 <div class="content">
 

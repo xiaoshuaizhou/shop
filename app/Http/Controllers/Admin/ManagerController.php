@@ -6,6 +6,7 @@ use App\Admin;
 use App\Http\Requests\ChangeEmailRequest;
 use App\Http\Requests\ChangePassRequest;
 use App\Http\Requests\ManagerRequest;
+use App\Models\Admin\Role;
 use App\Reposities\Admin\ManagerReposity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -145,5 +146,46 @@ class ManagerController extends Controller
         $user = Admin::findOrFail($id);
 
         return view('admin.user.profile', compact('user'));
+    }
+
+    /**
+     * 用户角色页
+     * @param Admin $admin
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function role(Admin $admin)
+    {
+        $roles = Role::all();
+        $myRoles = $admin->roles;
+        $manegers = Admin::all();
+
+        return view('admin.user.role', compact('manegers', 'roles', 'myRoles', 'admin'));
+
+    }
+
+    /**
+     * 增加或删除管理员角色
+     * @param Admin $admin
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function storeRole(Admin $admin)
+    {
+        $this->validate(\request(), [
+            'roles' => 'required|array'
+        ]);
+        $roles = Role::findMany(\request('roles'));
+        $myRoles = $admin->roles;
+        //要增加的角色
+        $addRoles = $roles->diff($myRoles);
+        foreach ($addRoles as $addRole) {
+            $admin->assignRole($addRole);
+        }
+        //要删除的角色
+        $deleteRoles = $myRoles->diff($roles);
+        foreach ($deleteRoles as $deleteRole) {
+            $admin->deleteRole($deleteRole);
+        }
+
+        return redirect()->back();
     }
 }

@@ -237,7 +237,7 @@
                 <span>统计</span>
             </a>
         </li>
-
+        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-user"></i>
@@ -249,7 +249,23 @@
                 <li><a href="{{url('/admin/manager/add')}}">管理员新用户</a></li>
             </ul>
         </li>
+        @endif
+        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
 
+        <li>
+            <a class="dropdown-toggle" href="#">
+                <i class="icon-user-md"></i>
+                <span>权限管理</span>
+                <i class="icon-chevron-down"></i>
+            </a>
+            <ul class="submenu">
+                <li><a href="{{url('/admin/roles')}}">角色管理</a></li>
+                <li><a href="{{url('/admin/manager/'.\Auth::guard('admin')->id() .'/role')}}">用户管理</a></li>
+                <li><a href="{{url('/admin/permissions')}}">权限管理</a></li>
+            </ul>
+        </li>
+        @endif
+        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-group"></i>
@@ -261,7 +277,8 @@
                 <li><a href="{{url('/admin/user/add')}}">加入新用户</a></li>
             </ul>
         </li>
-
+@endif
+        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-th-list"></i>
@@ -273,6 +290,8 @@
                 <li><a href="{{url('/admin/category/add')}}">加入分类</a></li>
             </ul>
         </li>
+        @endif
+        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
 
         <li>
             <a class="dropdown-toggle" href="#">
@@ -285,9 +304,12 @@
                 <li><a href="{{url('/admin/product/add')}}">添加商品</a></li>
             </ul>
         </li>
+        @endif
+        @if(Auth::check() &&  Auth::guard('admin')->user()->isAdmin())
+
         <li>
             <a class="dropdown-toggle" href="#">
-                <i class="icon-glass"></i>
+                <i class="icon-shopping-cart"></i>
                 <span>订单管理</span>
                 <i class="icon-chevron-down"></i>
             </a>
@@ -296,6 +318,7 @@
                 <li><a href="{{url('/admin/order/add')}}">添加商品</a></li>
             </ul>
         </li>
+        @endif
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-edit"></i>

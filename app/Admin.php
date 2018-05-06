@@ -51,6 +51,81 @@ class Admin extends Authenticatable
     ];
 
     /**
+     * 用户有哪些角色
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Admin\Role', 'admin_role_admin', 'admin_id', 'role_id')
+            ->withPivot(['admin_id', 'role_id'])
+            ->withTimestamps();
+    }
+
+    /**
+     * 判断是否有那个角色
+     * @param $roles
+     * @return bool
+     */
+    public function isInRoles($roles)
+    {
+        return !!$roles->intersect($this->roles)->count();
+    }
+
+    /**
+     * 分配权限
+     * @param $role
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function assignRole($role)
+    {
+        return $this->roles()->save($role);
+    }
+
+    /**
+     * 取消角色
+     * @param $role
+     * @return int
+     */
+    public function deleteRole($role)
+    {
+        return $this->roles()->detach($role);
+    }
+
+    /**
+     * 用户是否有权限
+     * @param $permission
+     * @return bool
+     */
+    public function hasPermission($permission)
+    {
+        return $this->hasRole($permission->roles);
+
+    }
+
+    /**
+     * 判断用户是否具有某个角色
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles->contains('name', $role);
+        }
+
+        return !! $role->intersect($this->roles)->count();
+    }
+
+    /**
+     * 是不是管理员权限
+     * @return mixed
+     */
+    public function isAdmin()
+    {
+        return $this->roles->contains('name', 'admin');
+    }
+
+    /**
      * Send the password reset notification.
      *
      * @param  string  $token

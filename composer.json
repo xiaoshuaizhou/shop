@@ -17,10 +17,9 @@
         "laravel/tinker": "^1.0",
         "naux/sendcloud": "^1.1",
         "overtrue/laravel-filesystem-qiniu": "^1.0",
+        "predis/predis": "^1.1",
         "riverslei/payment": "^4.1",
-        "tamayo/laravel-scout-elastic": "^3.0",
-        "yansongda/laravel-pay": "^2.0",
-        "zhouxiaoshuai/hasher": "^1.0"
+        "tamayo/laravel-scout-elastic": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",

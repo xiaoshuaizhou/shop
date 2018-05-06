@@ -90,7 +90,7 @@ return [
     'elasticsearch' => [
         'index' => env('ELASTICSEARCH_INDEX', 'laravel56_shop'),
         'hosts' => [
-            env('ELASTICSEARCH_HOST', '127.0.0.1:9200'),
+            env('ELASTICSEARCH_HOST', 'http://127.0.0.1:9200'),
         ],
     ],
 ];

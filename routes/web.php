@@ -11,6 +11,12 @@
 |
 */
 
+//测试ES
+Route::get('/search', function (){
+    return \App\Models\Admin\Product::search('2017')->get();
+});
+
+
 Route::get('/pay', 'Home\AliPayController@index');
 
 Route::get('/', 'Home\IndexController@index');
@@ -55,13 +61,28 @@ Route::group([ 'prefix' => 'admin' ], function () {
     Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
     Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 
-    Route::get('/manager/add', 'Admin\ManagerController@add');
-    Route::post('/manager/add', 'Admin\ManagerController@create');
-    Route::get('/manager/del/{id}', 'Admin\ManagerController@detroy');
-
-    Route::get('/manager/index', 'Admin\ManagerController@index');
-    Route::post('/manager/index', 'Admin\ManagerController@index');
-
+    Route::group(['middleware' => 'admincan'], function (){
+        //管理员模块
+        Route::get('/manager/add', 'Admin\ManagerController@add');
+        Route::post('/manager/add', 'Admin\ManagerController@create');
+        Route::get('/manager/del/{id}', 'Admin\ManagerController@detroy');
+        Route::get('/manager/index', 'Admin\ManagerController@index');
+        //角色创建
+        Route::get('/manager/{admin}/role', 'Admin\ManagerController@role');
+        Route::post('/manager/{admin}/role', 'Admin\ManagerController@storeRole');
+        //角色
+        Route::get('/roles/{admin}/permissioninfo', 'Admin\RoleController@roleByManager');
+        Route::get('/roles', 'Admin\RoleController@index');
+        Route::get('/roles/create', 'Admin\RoleController@create');
+        Route::post('/roles/store', 'Admin\RoleController@store');
+        //创建权限
+        Route::get('/roles/{role}/permission', 'Admin\RoleController@permission');
+        Route::post('/roles/{role}/permission', 'Admin\RoleController@storePermission');
+        //权限
+        Route::get('/permissions', 'Admin\PermissionController@index');
+        Route::get('/permissions/create', 'Admin\PermissionController@create');
+        Route::post('/permissions/store', 'Admin\PermissionController@store');
+    });
     Route::get('/index', 'Admin\IndexController@index');
     Route::get('/calender', 'Admin\CalendarController@index');
     Route::get('/chartshowcase', 'Admin\ChartShowcaseController@index');
