@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d246b185a5fd98e448c2744a74d546b",
+    "content-hash": "2d8b7c6c094d21c8ef6642c91d434c5f",
     "packages": [
         {
             "name": "darryldecode/cart",
@@ -2052,6 +2052,56 @@
             "time": "2018-04-04T21:24:14+00:00"
         },
         {
+            "name": "pda/pheanstalk",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pda/pheanstalk.git",
+                "reference": "430e77c551479aad0c6ada0450ee844cf656a18b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/pda/pheanstalk/430e77c551479aad0c6ada0450ee844cf656a18b.zip",
+                "reference": "430e77c551479aad0c6ada0450ee844cf656a18b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pheanstalk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Annesley",
+                    "email": "paul@annesley.cc",
+                    "homepage": "http://paul.annesley.cc/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP client for beanstalkd queue",
+            "homepage": "https://github.com/pda/pheanstalk",
+            "keywords": [
+                "beanstalkd"
+            ],
+            "time": "2015-08-07T21:42:41+00:00"
+        },
+        {
             "name": "predis/predis",
             "version": "v1.1.1",
             "source": {
@@ -3605,266 +3655,6 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
-        },
-        {
-            "name": "yansongda/laravel-pay",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yansongda/laravel-pay.git",
-                "reference": "c2145e3f440292890c02b11a1eee052f0cf69788"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/yansongda/laravel-pay/c2145e3f440292890c02b11a1eee052f0cf69788.zip",
-                "reference": "c2145e3f440292890c02b11a1eee052f0cf69788",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.1",
-                "yansongda/pay": "^2.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Yansongda\\LaravelPay\\PayServiceProvider"
-                    ],
-                    "aliases": {
-                        "Pay": "Yansongda\\LaravelPay\\Facades\\Pay"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Yansongda\\LaravelPay\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "yansongda",
-                    "email": "me@yansongda.cn"
-                }
-            ],
-            "description": "专注 Alipay 和 WeChat 的 laravel 支付扩展包",
-            "keywords": [
-                "alipay",
-                "laravel",
-                "package",
-                "pay",
-                "wechat"
-            ],
-            "time": "2017-12-27T01:55:32+00:00"
-        },
-        {
-            "name": "yansongda/pay",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yansongda/pay.git",
-                "reference": "89bf5eddef48e016c0237f127602a56481c6fc30"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/yansongda/pay/89bf5eddef48e016c0237f127602a56481c6fc30.zip",
-                "reference": "89bf5eddef48e016c0237f127602a56481c6fc30",
-                "shasum": ""
-            },
-            "require": {
-                "ext-openssl": "*",
-                "ext-simplexml": "*",
-                "monolog/monolog": "^1.23",
-                "php": ">=7.0",
-                "symfony/http-foundation": "^3.0|^4.0",
-                "yansongda/supports": "^1.4"
-            },
-            "require-dev": {
-                "mockery/mockery": "1.0.x-dev",
-                "phpunit/phpunit": "^6.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Yansongda\\Pay\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "yansongda",
-                    "email": "me@yansongda.cn"
-                }
-            ],
-            "description": "专注 Alipay 和 WeChat 的支付扩展包",
-            "keywords": [
-                "alipay",
-                "pay",
-                "wechat"
-            ],
-            "time": "2018-04-09T03:39:47+00:00"
-        },
-        {
-            "name": "yansongda/supports",
-            "version": "v1.4.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yansongda/supports.git",
-                "reference": "7d1c1707048a465eaa17b3f9f94ab4f6fb529313"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/yansongda/supports/7d1c1707048a465eaa17b3f9f94ab4f6fb529313.zip",
-                "reference": "7d1c1707048a465eaa17b3f9f94ab4f6fb529313",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.3",
-                "php": ">=5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Yansongda\\Supports\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "yansongda",
-                    "email": "me@yansongda.cn"
-                }
-            ],
-            "description": "common components",
-            "keywords": [
-                "Guzzle",
-                "array",
-                "collection",
-                "config",
-                "http",
-                "support"
-            ],
-            "time": "2018-03-22T12:33:46+00:00"
-        },
-        {
-            "name": "zhouxiaoshuai/hasher",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xiaoshuaizhou/laravel-package-demo.git",
-                "reference": "f8d7366281b6c23d9d65557f39e0586ecbee10f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/xiaoshuaizhou/laravel-package-demo/f8d7366281b6c23d9d65557f39e0586ecbee10f8.zip",
-                "reference": "f8d7366281b6c23d9d65557f39e0586ecbee10f8",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Zhouxiaoshuai\\Hasher\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "zhouxiaoshuai",
-                    "email": "zhouxiaoshuai3@gmail.com"
-                }
-            ],
-            "description": "Md5 support in Laravel",
-            "time": "2018-03-24T09:46:44+00:00"
-        },
-        {
-            "name": "zizaco/entrust",
-            "version": "1.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Zizaco/entrust.git",
-                "reference": "05b2542f5f96ea80998a13800c6e216df6821bff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/Zizaco/entrust/05b2542f5f96ea80998a13800c6e216df6821bff.zip",
-                "reference": "05b2542f5f96ea80998a13800c6e216df6821bff",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/cache": "~5.0",
-                "illuminate/console": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "illuminate/database": "~5.0",
-                "mockery/mockery": "dev-master",
-                "phpunit/phpunit": "~4.1",
-                "sami/sami": "dev-master"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Zizaco\\Entrust\\EntrustServiceProvider"
-                    ],
-                    "aliases": {
-                        "Entrust": "Zizaco\\Entrust\\EntrustFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/commands"
-                ],
-                "psr-4": {
-                    "Zizaco\\Entrust\\": "src/Entrust/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andrew Elkins",
-                    "homepage": "http://andrewelkins.com"
-                },
-                {
-                    "name": "Zizaco Zizuini",
-                    "email": "zizaco@gmail.com"
-                },
-                {
-                    "name": "Ben Batschelet",
-                    "homepage": "http://github.com/bbatsche"
-                },
-                {
-                    "name": "Michele Angioni",
-                    "email": "michele.angioni@gmail.com"
-                }
-            ],
-            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
-            "keywords": [
-                "acl",
-                "auth",
-                "illuminate",
-                "laravel",
-                "permission",
-                "roles"
-            ],
-            "time": "2017-11-13T23:25:18+00:00"
         }
     ],
     "packages-dev": [
@@ -5785,6 +5575,266 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "yansongda/laravel-pay",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yansongda/laravel-pay.git",
+                "reference": "c2145e3f440292890c02b11a1eee052f0cf69788"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/yansongda/laravel-pay/c2145e3f440292890c02b11a1eee052f0cf69788.zip",
+                "reference": "c2145e3f440292890c02b11a1eee052f0cf69788",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1",
+                "yansongda/pay": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yansongda\\LaravelPay\\PayServiceProvider"
+                    ],
+                    "aliases": {
+                        "Pay": "Yansongda\\LaravelPay\\Facades\\Pay"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yansongda\\LaravelPay\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yansongda",
+                    "email": "me@yansongda.cn"
+                }
+            ],
+            "description": "专注 Alipay 和 WeChat 的 laravel 支付扩展包",
+            "keywords": [
+                "alipay",
+                "laravel",
+                "package",
+                "pay",
+                "wechat"
+            ],
+            "time": "2017-12-27T01:55:32+00:00"
+        },
+        {
+            "name": "yansongda/pay",
+            "version": "v2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yansongda/pay.git",
+                "reference": "89bf5eddef48e016c0237f127602a56481c6fc30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/yansongda/pay/89bf5eddef48e016c0237f127602a56481c6fc30.zip",
+                "reference": "89bf5eddef48e016c0237f127602a56481c6fc30",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-simplexml": "*",
+                "monolog/monolog": "^1.23",
+                "php": ">=7.0",
+                "symfony/http-foundation": "^3.0|^4.0",
+                "yansongda/supports": "^1.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "1.0.x-dev",
+                "phpunit/phpunit": "^6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Yansongda\\Pay\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yansongda",
+                    "email": "me@yansongda.cn"
+                }
+            ],
+            "description": "专注 Alipay 和 WeChat 的支付扩展包",
+            "keywords": [
+                "alipay",
+                "pay",
+                "wechat"
+            ],
+            "time": "2018-04-09T03:39:47+00:00"
+        },
+        {
+            "name": "yansongda/supports",
+            "version": "v1.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yansongda/supports.git",
+                "reference": "7d1c1707048a465eaa17b3f9f94ab4f6fb529313"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/yansongda/supports/7d1c1707048a465eaa17b3f9f94ab4f6fb529313.zip",
+                "reference": "7d1c1707048a465eaa17b3f9f94ab4f6fb529313",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Yansongda\\Supports\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yansongda",
+                    "email": "me@yansongda.cn"
+                }
+            ],
+            "description": "common components",
+            "keywords": [
+                "Guzzle",
+                "array",
+                "collection",
+                "config",
+                "http",
+                "support"
+            ],
+            "time": "2018-03-22T12:33:46+00:00"
+        },
+        {
+            "name": "zhouxiaoshuai/hasher",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xiaoshuaizhou/laravel-package-demo.git",
+                "reference": "f8d7366281b6c23d9d65557f39e0586ecbee10f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/xiaoshuaizhou/laravel-package-demo/f8d7366281b6c23d9d65557f39e0586ecbee10f8.zip",
+                "reference": "f8d7366281b6c23d9d65557f39e0586ecbee10f8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zhouxiaoshuai\\Hasher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zhouxiaoshuai",
+                    "email": "zhouxiaoshuai3@gmail.com"
+                }
+            ],
+            "description": "Md5 support in Laravel",
+            "time": "2018-03-24T09:46:44+00:00"
+        },
+        {
+            "name": "zizaco/entrust",
+            "version": "1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/entrust.git",
+                "reference": "05b2542f5f96ea80998a13800c6e216df6821bff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/Zizaco/entrust/05b2542f5f96ea80998a13800c6e216df6821bff.zip",
+                "reference": "05b2542f5f96ea80998a13800c6e216df6821bff",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.0",
+                "illuminate/console": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Zizaco\\Entrust\\EntrustServiceProvider"
+                    ],
+                    "aliases": {
+                        "Entrust": "Zizaco\\Entrust\\EntrustFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "Zizaco\\Entrust\\": "src/Entrust/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
+                },
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Ben Batschelet",
+                    "homepage": "http://github.com/bbatsche"
+                },
+                {
+                    "name": "Michele Angioni",
+                    "email": "michele.angioni@gmail.com"
+                }
+            ],
+            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
+            "keywords": [
+                "acl",
+                "auth",
+                "illuminate",
+                "laravel",
+                "permission",
+                "roles"
+            ],
+            "time": "2017-11-13T23:25:18+00:00"
         }
     ],
     "aliases": [],
