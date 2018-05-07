@@ -237,7 +237,7 @@
                 <span>统计</span>
             </a>
         </li>
-        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
+        @if(Auth::guard('admin')->check() && Auth::guard('admin')->user()->isAdmin())
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-user"></i>
@@ -250,7 +250,7 @@
             </ul>
         </li>
         @endif
-        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
+        @if(Auth::guard('admin')->check() && Auth::guard('admin')->user()->isAdmin())
 
         <li>
             <a class="dropdown-toggle" href="#">
@@ -265,7 +265,7 @@
             </ul>
         </li>
         @endif
-        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
+        @if(Auth::guard('admin')->check() && Auth::guard('admin')->user()->isAdmin())
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-group"></i>
@@ -277,8 +277,8 @@
                 <li><a href="{{url('/admin/user/add')}}">加入新用户</a></li>
             </ul>
         </li>
-@endif
-        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
+        @endif
+        @if(Auth::guard('admin')->check() && Auth::guard('admin')->user()->isAdmin())
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-th-list"></i>
@@ -291,7 +291,7 @@
             </ul>
         </li>
         @endif
-        @if(Auth::check() && Auth::guard('admin')->user()->isAdmin())
+        @if(Auth::guard('admin')->check() && Auth::guard('admin')->user()->isAdmin())
 
         <li>
             <a class="dropdown-toggle" href="#">
@@ -305,7 +305,7 @@
             </ul>
         </li>
         @endif
-        @if(Auth::check() &&  Auth::guard('admin')->user()->isAdmin())
+        @if(Auth::guard('admin')->check() &&  Auth::guard('admin')->user()->isAdmin())
 
         <li>
             <a class="dropdown-toggle" href="#">
