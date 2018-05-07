@@ -15,8 +15,7 @@ class AdminAuthorize
      */
     public function handle($request, Closure $next)
     {
-        $user = \Auth::guard('admin')->user();
-        if ($request->user() && $user->isAdmin()){
+        if (\Auth::guard('admin')->check() && \Auth::guard('admin')->user()->isAdmin()){
             return $next($request);
         }
 
