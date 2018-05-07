@@ -88,7 +88,7 @@ class RegisterController extends CommonController
         ]);
 
         $this->dispatch(new SendRegisterEmail($user));
-        dump($user);
+
         flash('邮件发送成功', 'success');
 
         return $user;

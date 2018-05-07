@@ -45,5 +45,6 @@ class SendRegisterEmail implements ShouldQueue
 
             $message->to($this->user->email);
         });
+        \Log::info('send email to '. $this->user->email);
     }
 }
