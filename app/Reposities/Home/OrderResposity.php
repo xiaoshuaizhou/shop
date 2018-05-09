@@ -46,14 +46,13 @@ class OrderResposity
      */
     public function create($data)
     {
-//        \DB::beginTransaction();
-//        try{
+        \DB::beginTransaction();
+        try{
             $order = $this->order->create([
                 'userid' => \Auth::id(),
                 'status' => Order::CREATEORDER,
                 'expressno' => self::makeOrderNo()
             ]);
-            dd($order);
             $orderid = $order->id;
             foreach ($data['orderdetail'] as $product){
                 $product['orderid'] = $orderid;
@@ -67,21 +66,13 @@ class OrderResposity
                 //修改库存
                 Product::where('productid', $product['productid'])->update(['num' => $productnum->num - $product['productnum']]);
             }
-<<<<<<< HEAD
-//            \DB::commit();
-//            return true;
-//        }catch(\Exception $exception){
-//            \DB::rollBack();
-//            return false;
-//        }
-=======
+
             \DB::commit();
             return ['status' => true, 'orderid' => $orderid];
         }catch(\Exception $exception){
             \DB::rollBack();
             return ['status' => false, 'orderid' => 0];
         }
->>>>>>> fc5f82f052828eba61a94060b7cd49950a654301
 
     }
 
