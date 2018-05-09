@@ -34,7 +34,7 @@ class CartController extends Controller
 //        })->sum();
 //        dd($totalPrice);
 
-        return view('home.cart.index', compact('data'));
+        return view('home.cart.Index', compact('data'));
     }
     /**
      * @param Request $request

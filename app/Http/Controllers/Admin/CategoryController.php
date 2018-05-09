@@ -35,7 +35,7 @@ class CategoryController extends Controller
     {
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
 
-        return view('admin.category.list', compact('cats'));
+        return view('admin.category.List', compact('cats'));
     }
 
     /**
@@ -45,7 +45,7 @@ class CategoryController extends Controller
     {
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
 
-        return view('admin.category.add', compact('cats'));
+        return view('admin.category.Add', compact('cats'));
     }
 
     /**
@@ -69,7 +69,7 @@ class CategoryController extends Controller
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
         $cat = $this->categoryReposity->getCateById($id);
 
-        return view('admin.category.edit', compact('cats', 'cat'));
+        return view('admin.category.Edit', compact('cats', 'cat'));
     }
 
     /**

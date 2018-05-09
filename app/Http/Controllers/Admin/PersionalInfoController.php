@@ -33,7 +33,7 @@ class PersionalInfoController extends Controller
     {
         $admin = $this->userModel->getUserById($id);
 
-        return view('admin.persional.index', compact('admin'));
+        return view('admin.persional.Index', compact('admin'));
     }
 
     /**

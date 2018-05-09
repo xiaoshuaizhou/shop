@@ -14,6 +14,6 @@ class TableController extends Controller
 
     public function index()
     {
-        return view('admin.table.index');
+        return view('admin.table.Index');
     }
 }

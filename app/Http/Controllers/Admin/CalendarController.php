@@ -14,6 +14,6 @@ class CalendarController extends Controller
 
     public function index()
     {
-        return view('admin.calender.index');
+        return view('admin.calender.Index');
     }
 }

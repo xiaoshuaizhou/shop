@@ -9,6 +9,6 @@ class IndexController extends CommonController
         $menus = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 
-        return view('home.index.index', compact('menus', 'data'));
+        return view('home.index.Index', compact('menus', 'data'));
     }
 }

@@ -14,6 +14,6 @@ class ChartShowcaseController extends Controller
 
     public function index()
     {
-        return view('admin.chartshowcase.index');
+        return view('admin.chartshowcase.Index');
     }
 }

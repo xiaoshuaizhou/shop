@@ -35,7 +35,7 @@ class OrderController extends CommonController
         $res = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 
-        return view('home.order.index' , compact('res', 'data'));
+        return view('home.order.Index' , compact('res', 'data'));
     }
 
     /**
@@ -70,7 +70,7 @@ class OrderController extends CommonController
             $totalPrice += $item->price * $item->productnum;
         }
 
-        return view('home.order.check' , compact('res', 'data', 'info',  'express', 'address', 'totalPrice'));
+        return view('home.order.Check' , compact('res', 'data', 'info',  'express', 'address', 'totalPrice'));
     }
 
     /**

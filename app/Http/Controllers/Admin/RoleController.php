@@ -22,7 +22,7 @@ class RoleController extends Controller
     {
         $roles = Role::paginate(2);
 
-        return view('admin.user.rolelist', compact('roles'));
+        return view('admin.user.Rolelist', compact('roles'));
     }
 
     /**
@@ -31,7 +31,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.user.addrole');
+        return view('admin.user.Addrole');
     }
 
     public function roleByManager(Admin $admin)
@@ -70,7 +70,7 @@ class RoleController extends Controller
         $permissions = Permission::all();
         $myPermissions = $role->permissions;
 
-        return view('admin.user.rolesPermission', compact('permissions', 'myPermissions', 'role'));
+        return view('admin.user.RolesPermission', compact('permissions', 'myPermissions', 'role'));
     }
 
     /**

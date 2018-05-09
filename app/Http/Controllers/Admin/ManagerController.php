@@ -28,7 +28,7 @@ class ManagerController extends Controller
     public function index(Request $request)
     {
         $managers = $this->adminRepositoy->getAllManagers();
-        return view('admin.user.indexmanager', compact('managers'));
+        return view('admin.user.Indexmanager', compact('managers'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ManagerController extends Controller
      */
     public function add()
     {
-        return view('admin.user.addmanager');
+        return view('admin.user.Addmanager');
     }
 
     /**
@@ -88,7 +88,7 @@ class ManagerController extends Controller
     {
         $user = \Auth::guard('admin')->user();
 
-        return view('admin.user.changeemail', compact('user'));
+        return view('admin.user.Changeemail', compact('user'));
     }
 
     /**
@@ -110,7 +110,7 @@ class ManagerController extends Controller
     {
         $user = \Auth::guard('admin')->user();
 
-        return view('admin.user.changepass', compact('user'));
+        return view('admin.user.Changepass', compact('user'));
     }
 
     /**
@@ -145,7 +145,7 @@ class ManagerController extends Controller
     {
         $user = Admin::findOrFail($id);
 
-        return view('admin.user.profile', compact('user'));
+        return view('admin.user.Profile', compact('user'));
     }
 
     /**
@@ -159,7 +159,7 @@ class ManagerController extends Controller
         $myRoles = $admin->roles;
         $manegers = Admin::all();
 
-        return view('admin.user.role', compact('manegers', 'roles', 'myRoles', 'admin'));
+        return view('admin.user.Role', compact('manegers', 'roles', 'myRoles', 'admin'));
 
     }
 

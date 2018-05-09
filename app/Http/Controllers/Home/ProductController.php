@@ -14,7 +14,7 @@ class ProductController extends CommonController
         $res = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 
-        return view('home.product.index', compact('res', 'data'));
+        return view('home.product.Index', compact('res', 'data'));
     }
 
     /**
@@ -28,6 +28,6 @@ class ProductController extends CommonController
         $res = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 
-        return view('home.product.detail' , compact('res', 'product', 'data'));
+        return view('home.product.Detail' , compact('res', 'product', 'data'));
     }
 }

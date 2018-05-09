@@ -14,12 +14,12 @@ class FormShowcaseController extends Controller
 
     public function index()
     {
-        return view('admin.formshowcase.index');
+        return view('admin.formshowcase.Index');
     }
 
     public function formwizard()
     {
-        return view('admin.formshowcase.formwizard');
+        return view('admin.formshowcase.Formwizard');
 
     }
 }

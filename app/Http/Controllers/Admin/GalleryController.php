@@ -14,6 +14,6 @@ class GalleryController extends Controller
 
     public function index()
     {
-        return view('admin.gallery.index');
+        return view('admin.gallery.Index');
     }
 }

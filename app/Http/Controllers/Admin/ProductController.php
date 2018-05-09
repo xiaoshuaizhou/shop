@@ -47,7 +47,7 @@ class ProductController extends Controller
     {
         $products = $this->productReposity->getAllProducts();
 
-        return view('admin.product.list', compact('products'));
+        return view('admin.product.List', compact('products'));
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductController extends Controller
     {
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
 
-        return view('admin.product.add', compact('cats'));
+        return view('admin.product.Add', compact('cats'));
     }
 
     /**
@@ -114,7 +114,7 @@ class ProductController extends Controller
         $cats = $this->categoryReposity->setPrefix($this->categoryReposity->getTree($this->categoryReposity->categoryList()));
         $product = ProductReposity::getProductById($id);
 
-        return view('admin.product.edit', compact('cats', 'product'));
+        return view('admin.product.Edit', compact('cats', 'product'));
     }
 
     /**

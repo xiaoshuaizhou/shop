@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         $users = $this->userModel->getAllUsers();
 
-        return view('admin.user.index', compact('users'));
+        return view('admin.user.Index', compact('users'));
     }
 
 
@@ -44,7 +44,7 @@ class UserController extends Controller
      */
     public function add()
     {
-        return view('admin.user.add');
+        return view('admin.user.Add');
     }
 
     /**
