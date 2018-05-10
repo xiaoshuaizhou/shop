@@ -151,6 +151,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        SwooleTW\Http\LaravelServiceProvider::class,
         /*
          * Package Service Providers...
          */
