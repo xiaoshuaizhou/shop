@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.16 on 2018-05-10 13:20:36.
+ * Generated for Laravel 5.6.21 on 2018-05-10 21:06:59.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -8717,6 +8717,16 @@ namespace Illuminate\Support\Facades {
          *
          * @static 
          */ 
+        public static function forgetDisk($disk)
+        {
+            return \Illuminate\Filesystem\FilesystemManager::forgetDisk($disk);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
         public static function extend($driver, $callback)
         {
             return \Illuminate\Filesystem\FilesystemManager::extend($driver, $callback);
@@ -10118,84 +10128,6 @@ namespace Illuminate\Support\Facades {
  
 }
 
-namespace Zizaco\Entrust { 
-
-    class EntrustFacade {
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function hasRole($role, $requireAll = false)
-        {
-            return \Zizaco\Entrust\Entrust::hasRole($role, $requireAll);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function can($permission, $requireAll = false)
-        {
-            return \Zizaco\Entrust\Entrust::can($permission, $requireAll);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function ability($roles, $permissions, $options = array())
-        {
-            return \Zizaco\Entrust\Entrust::ability($roles, $permissions, $options);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function user()
-        {
-            return \Zizaco\Entrust\Entrust::user();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function routeNeedsRole($route, $roles, $result = null, $requireAll = true)
-        {
-            return \Zizaco\Entrust\Entrust::routeNeedsRole($route, $roles, $result, $requireAll);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function routeNeedsPermission($route, $permissions, $result = null, $requireAll = true)
-        {
-            return \Zizaco\Entrust\Entrust::routeNeedsPermission($route, $permissions, $result, $requireAll);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function routeNeedsRoleOrPermission($route, $roles, $permissions, $result = null, $requireAll = false)
-        {
-            return \Zizaco\Entrust\Entrust::routeNeedsRoleOrPermission($route, $roles, $permissions, $result, $requireAll);
-        }
-         
-    }
- 
-}
-
 namespace Darryldecode\Cart\Facades { 
 
     class CartFacade {
@@ -10556,84 +10488,6 @@ namespace Laracasts\Flash {
         public static function clear()
         {
             return \Laracasts\Flash\FlashNotifier::clear();
-        }
-         
-    }
- 
-}
-
-namespace Yansongda\LaravelPay\Facades { 
-
-    class Pay {
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function pay($gateway, $params = array())
-        {
-            return \Yansongda\Pay\Gateways\Alipay::pay($gateway, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function verify()
-        {
-            return \Yansongda\Pay\Gateways\Alipay::verify();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function find($order)
-        {
-            return \Yansongda\Pay\Gateways\Alipay::find($order);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function refund($order)
-        {
-            return \Yansongda\Pay\Gateways\Alipay::refund($order);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function cancel($order)
-        {
-            return \Yansongda\Pay\Gateways\Alipay::cancel($order);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function close($order)
-        {
-            return \Yansongda\Pay\Gateways\Alipay::close($order);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function success()
-        {
-            return \Yansongda\Pay\Gateways\Alipay::success();
         }
          
     }
@@ -11371,6 +11225,16 @@ namespace  {
              *
              * @static 
              */ 
+            public static function joinSub($query, $as, $first, $operator = null, $second = null, $type = 'inner', $where = false)
+            {    
+                return \Illuminate\Database\Query\Builder::joinSub($query, $as, $first, $operator, $second, $type, $where);
+            }
+         
+            /**
+             * 
+             *
+             * @static 
+             */ 
             public static function leftJoin($table, $first, $operator = null, $second = null)
             {    
                 return \Illuminate\Database\Query\Builder::leftJoin($table, $first, $operator, $second);
@@ -11391,6 +11255,16 @@ namespace  {
              *
              * @static 
              */ 
+            public static function leftJoinSub($query, $as, $first, $operator = null, $second = null)
+            {    
+                return \Illuminate\Database\Query\Builder::leftJoinSub($query, $as, $first, $operator, $second);
+            }
+         
+            /**
+             * 
+             *
+             * @static 
+             */ 
             public static function rightJoin($table, $first, $operator = null, $second = null)
             {    
                 return \Illuminate\Database\Query\Builder::rightJoin($table, $first, $operator, $second);
@@ -11404,6 +11278,16 @@ namespace  {
             public static function rightJoinWhere($table, $first, $operator, $second)
             {    
                 return \Illuminate\Database\Query\Builder::rightJoinWhere($table, $first, $operator, $second);
+            }
+         
+            /**
+             * 
+             *
+             * @static 
+             */ 
+            public static function rightJoinSub($query, $as, $first, $operator = null, $second = null)
+            {    
+                return \Illuminate\Database\Query\Builder::rightJoinSub($query, $as, $first, $operator, $second);
             }
          
             /**
@@ -11611,7 +11495,7 @@ namespace  {
              *
              * @static 
              */ 
-            public static function orWhereDate($column, $operator, $value)
+            public static function orWhereDate($column, $operator, $value = null)
             {    
                 return \Illuminate\Database\Query\Builder::orWhereDate($column, $operator, $value);
             }
@@ -12389,13 +12273,9 @@ namespace  {
 
     class View extends \Illuminate\Support\Facades\View {}
 
-    class Entrust extends \Zizaco\Entrust\EntrustFacade {}
-
     class Cart extends \Darryldecode\Cart\Facades\CartFacade {}
 
     class Flash extends \Laracasts\Flash\Flash {}
-
-    class Pay extends \Yansongda\LaravelPay\Facades\Pay {}
  
 }
 
@@ -12956,8 +12836,6 @@ if (! function_exists('dd')) {
      */
     function dd(...$args)
     {
-        http_response_code(500);
-
         foreach ($args as $x) {
             (new Dumper)->dump($x);
         }

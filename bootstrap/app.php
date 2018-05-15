@@ -41,7 +41,6 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
-$app->register(SwooleTW\Http\LumenServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Return The Application
