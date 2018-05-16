@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://47.105.34.211'),
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +150,6 @@ return [
         Naux\Mail\SendCloudServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class,
         /*
          * Package Service Providers...
          */
