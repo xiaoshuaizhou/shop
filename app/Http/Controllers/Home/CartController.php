@@ -28,11 +28,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $data = $this->productReposity->getAllProductsInCart(\Auth::guard('web')->id());
-//        $totalPrice = $data->map(function ($product){
-//            return ($product->price * $product->productnum);
-//        })->sum();
-//        dd($totalPrice);
+        $data = collect($this->productReposity->getAllProductsInCart(\Auth::guard('web')->id()));
 
         return view('home.cart.Index', compact('data'));
     }

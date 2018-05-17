@@ -338,17 +338,17 @@
 
                             @foreach($res as $item)
                                 <li class="dropdown">
-                                    <a href="#" style="text-align: center;" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">{{$item->title}}</a>
+                                    <a href="#" style="text-align: center;" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">{{$item['title']}}</a>
                                     <ul class="dropdown-menu">
                                         @foreach($item['children'] as $i)
                                             <li>
                                                 <div class="yamm-content">
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-12">
-                                                            <h2 style="text-align: center;">{{$i->title}}</h2>
+                                                            <h2 style="text-align: center;">{{$i['title']}}</h2>
                                                             <ul>
                                                                 @foreach($i['children'] as $child)
-                                                                    <li style="text-align: center;"><a href="#">{{$child->title}}</a></li>
+                                                                    <li style="text-align: center;"><a href="#">{{$child['title']}}</a></li>
                                                                 @endforeach
                                                             </ul>
                                                         </div><!-- /.col -->

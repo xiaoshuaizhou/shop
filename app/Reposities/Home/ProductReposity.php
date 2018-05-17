@@ -5,6 +5,8 @@ namespace App\Reposities\Home;
 
 use App\Models\Admin\Product;
 use App\Models\Home\Cart;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Redis;
 
 class ProductReposity
 {
@@ -63,7 +65,12 @@ class ProductReposity
      */
     public function getAllProductsInCart($userid)
     {
-        return $this->car->with('product')->where('userid', $userid)->get();
+        $carts = $this->car->where('userid', $userid)->get();
+        $products = $carts->map(function ($cart){
+            return $cart->cached_products;
+        });
+
+        return $products->first();
     }
 
     /**

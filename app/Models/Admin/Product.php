@@ -27,6 +27,13 @@ class Product extends Model
     protected $fillable = ['cateid', 'title', 'descr', 'num', 'price', 'cover', 'pics', 'issale', 'ishot', 'istui', 'saleprice', 'ison'];
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function cart()
+    {
+        return $this->hasOne('App\Models\Home\Cart', 'cartid', 'productid');
+    }
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function details()

@@ -11,17 +11,17 @@
                         <ul class="nav">
                             @foreach($menus as $menu)
                                 <li class="dropdown menu-item">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$menu['title']}}</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$menu->title}}</a>
                                     <ul class="dropdown-menu mega-menu">
 
                                         <li class="yamm-content">
                                             <div class="row">
-                                                @foreach($menu['children'] as $m)
+                                                @foreach($menu->children as $m)
                                                     <div class="col-md-4">
                                                         <ul class="list-unstyled">
-                                                            <li><a href="{{url('/category/index')}}/{{$m['cateid']}}">{{$m['title']}}</a></li>
-                                                            @foreach($m['children'] as $child)
-                                                                <li><a href="{{url('/category/index')}}/{{$child['cateid']}}">{{$child['title']}}</a></li>
+                                                            <li><a href="{{url('/category/index')}}/{{$m->cateid}}">{{$m->title}}</a></li>
+                                                            @foreach($m->children as $child)
+                                                                <li><a href="{{url('/category/index')}}/{{$child->cateid}}">{{$child->title}}</a></li>
                                                             @endforeach
                                                         </ul>
                                                     </div>

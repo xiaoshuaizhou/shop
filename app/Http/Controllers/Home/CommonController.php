@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Models\Home\Cart;
 use App\Reposities\Admin\CategoryReposity;
-use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Cache;
 
 class CommonController extends Controller
 {
@@ -15,15 +15,10 @@ class CommonController extends Controller
      */
     public static function getMenu()
     {
-        $redis = new Redis();
         $key = 'menu';
-
-        if (!$menu = $redis::get($key)){
-            $menu = CategoryReposity::getMenu();
-            $redis::set($key, json_encode($menu), 'EX', 3600*2);
-        }
-
-        return json_decode($menu, true);
+        return Cache::remember($key, 2 * 60, function () {
+            return CategoryReposity::getMenu();
+        });
     }
 
     /**
