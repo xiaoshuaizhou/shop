@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Home;
+use Illuminate\Support\Facades\Redis;
 
 /**
  * Class IndexController
@@ -13,6 +14,10 @@ class IndexController extends CommonController
      */
     public function index()
     {
+        $redis = new Redis();
+//        dd($redis::keys("*"));
+
+
         $menus = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 

@@ -52,7 +52,7 @@ class RegisterController extends CommonController
     public function showRegistrationForm()
     {
         $data = $this->totalPrice(\Auth::guard('web')->id());
-        $res = CategoryReposity::getMenu();
+        $res = CommonController::getMenu();
 
         return view('auth.register' , compact('data', 'res'));
     }

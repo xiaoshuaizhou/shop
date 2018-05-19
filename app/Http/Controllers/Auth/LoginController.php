@@ -47,7 +47,7 @@ class LoginController extends CommonController
      */
     public function showLoginForm()
     {
-        $res = CategoryReposity::getMenu();
+        $res = CommonController::getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 
         return view('auth.login', compact('res', 'data'));
