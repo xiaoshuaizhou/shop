@@ -34,7 +34,18 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        parent::report($exception);
+        if ($this->shouldntReport($exception)) {
+            return;
+        }
+
+        // Send exception to Sentry if it is set.
+        if (env('SENTRY_DSN')) {
+            \Sentry::captureException($exception);
+        } else {
+            // Log the exception if the Sentry is not set.
+            parent::report($exception);
+        }
+
     }
 
     /**

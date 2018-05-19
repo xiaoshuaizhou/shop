@@ -150,6 +150,8 @@ return [
         Naux\Mail\SendCloudServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -178,7 +180,7 @@ return [
     */
 
     'aliases' => [
-
+        'Sentry' => Sentry\SentryLaravel\SentryFacade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

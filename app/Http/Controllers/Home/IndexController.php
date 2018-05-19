@@ -14,10 +14,7 @@ class IndexController extends CommonController
      */
     public function index()
     {
-        $redis = new Redis();
-//        dd($redis::keys("*"));
-
-
+        \Log::emergency('123');
         $menus = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 

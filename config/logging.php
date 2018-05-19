@@ -35,9 +35,11 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['single', 'sentry'],
         ],
-
+        'sentry' => [
+            'driver' => 'sentry',
+        ],
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
