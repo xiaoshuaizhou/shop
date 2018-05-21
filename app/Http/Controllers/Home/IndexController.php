@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Home;
+use App\Models\Kafka;
 use Illuminate\Support\Facades\Redis;
 
 /**
@@ -14,7 +15,10 @@ class IndexController extends CommonController
      */
     public function index()
     {
-        \Log::emergency('123');
+
+        $kafka = new Kafka();
+        $kafka->send(['this is indexController laravel']);
+
         $menus = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 

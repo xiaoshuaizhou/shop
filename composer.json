@@ -8,6 +8,7 @@
         "php": "^7.1.3",
         "darryldecode/cart": "~3.0",
         "doctrine/dbal": "^2.7",
+        "enqueue/rdkafka": "^0.8.28",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
         "hesto/multi-auth": "^2.0",
