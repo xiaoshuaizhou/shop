@@ -19,6 +19,8 @@ class IndexController extends CommonController
         $kafka = new Kafka();
         $kafka->send(['this is indexController laravel']);
 
+        die;
+
         $menus = $this->getMenu();
         $data = $this->totalPrice(\Auth::guard('web')->id());
 
